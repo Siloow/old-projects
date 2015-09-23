@@ -1,4 +1,4 @@
-temparature = input("What temeparature (Celsius) do you want to be converted to Kelvin?\n")
+﻿temparature = input("What temparature (Celsius) do you want to be converted to Kelvin?\n")
 
 def convert(temparature):
     kelvin = (temparature + 273.15)
@@ -6,6 +6,5 @@ def convert(temparature):
         print int(kelvin)
     else:
         print kelvin
-    return
 
 convert(temparature)
