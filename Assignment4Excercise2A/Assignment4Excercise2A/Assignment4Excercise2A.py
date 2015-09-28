@@ -19,7 +19,7 @@ def outcome(person_choice, computer_choice):
             print "Rock on Rock leads to nothing"
             print "Nobody won :("
         elif person_choice == "Paper": 
-            print "Paper beats rock"
+            print "Paper grabs rock"
             print "You win!"
         elif person_choice == "Scissors":
             print "Rock beats scissors"
@@ -29,13 +29,13 @@ def outcome(person_choice, computer_choice):
     elif computer_choice == "Paper":
         print "Computer chose Paper"
         if person_choice == "Rock":
-            print "Paper beats rock"
+            print "Paper grabs rock"
             print "You lose :("
         elif person_choice == "Paper": 
             print "Paper on paper leads to nothing"
             print "Nobody won"
         elif person_choice == "Scissors":
-            print "Scissors beats paper"
+            print "Scissors cuts paper"
         else:
             print "But you've probably misspelled Rock, Paper or Scissors" 
     elif computer_choice == "Scissors":
@@ -44,7 +44,7 @@ def outcome(person_choice, computer_choice):
             print "Rock beats scissors"
             print "You win!"
         elif person_choice == "Paper": 
-            print "Scissors beats paper"
+            print "Scissors cuts paper"
             print "You lose :("
         elif person_choice == "Scissors":
             print "Scissors on scissors leads to nothing"
@@ -56,5 +56,6 @@ def outcome(person_choice, computer_choice):
 
 #Calling the outcome function with the two variables inserted
 outcome(person_choice, computer_choice)
+
 
         
