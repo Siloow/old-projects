@@ -1,7 +1,7 @@
-#Import random to let the computer function randomly choose between rock, paper, scissors, lizard or spock
+﻿# Import random to let the computer function randomly choose between rock, paper, scissors, lizard or spock
 import random
  
-#Function to convert the number to a string
+# Function to convert the number to a string
 def name_to_number(name):
     if name == "Rock":
         number = 0
@@ -17,7 +17,7 @@ def name_to_number(name):
         print "incorrect input"
     return number
     
-#Function to convert the number to a name 
+# Function to convert the number to a name 
 def number_to_name(number):
     if number == 0:
         name = "Rock"
@@ -55,20 +55,38 @@ def rpsls(player_choice):
     # compute difference of comp_number and player_number modulo five
     gap = player_number - comp_number
     gap_remainder = gap % 5
-    # print gap_remainder
     
+       
     # use if/elif/else to determine winner, print winner message
     if gap_remainder == 0:
         print "Player and computer tie!"
     elif gap_remainder < 3:
-        print "Player wins!"
+        if comp_number == 0 and player_number == 1:
+            print "Spock vaporizes Rock"
+            print "Player wins!"
+        elif comp_number == 1 and player_number == 3:
+            print "Lizard poisons Spock"
+            print "Player wins!"
+        elif comp_number == 2 and player_number == 4:
+            print "Scissors cuts paper"
+            print "Player wins!"
+        elif comp_number == 3 and player_number == 0:
+            print "Rock crushes Lizard"
+            print "Player wins!"
+        elif comp_number == 4 and player_number == 1:
+            print "Spock smashes Scissors"
+            print "Player wins!"
+        else:
+            print "bir"
     elif gap_remainder >= 3:
         print "Computer wins!"
         
     
-# test your code - LEAVE THESE CALLS IN YOUR SUBMITTED CODE
-rpsls("Rock")
-rpsls("Spock")
-rpsls("Paper")
-rpsls("Lizard")
-rpsls("Scissors")
+user_input = raw_input("Choose Rock, Paper, Scissors, Lizard or Spock\n")
+rpsls(user_input)
+
+user_input = raw_input("Choose Rock, Paper, Scissors, Lizard or Spock\n")
+rpsls(user_input)
+
+user_input = raw_input("Choose Rock, Paper, Scissors, Lizard or Spock\n")
+rpsls(user_input)
