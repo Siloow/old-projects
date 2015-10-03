@@ -36,6 +36,7 @@ def outcome(person_choice, computer_choice):
             print "Nobody won"
         elif person_choice == "Scissors":
             print "Scissors cuts paper"
+            print "You won!"
         else:
             print "But you've probably misspelled Rock, Paper or Scissors" 
     elif computer_choice == "Scissors":
@@ -56,6 +57,5 @@ def outcome(person_choice, computer_choice):
 
 #Calling the outcome function with the two variables inserted
 outcome(person_choice, computer_choice)
-
 
         

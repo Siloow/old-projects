@@ -61,23 +61,7 @@ def rpsls(player_choice):
     if gap_remainder == 0:
         print "Player and computer tie!"
     elif gap_remainder < 3:
-        if comp_number == 0 and player_number == 1:
-            print "Spock vaporizes Rock"
-            print "Player wins!"
-        elif comp_number == 1 and player_number == 3:
-            print "Lizard poisons Spock"
-            print "Player wins!"
-        elif comp_number == 2 and player_number == 4:
-            print "Scissors cuts paper"
-            print "Player wins!"
-        elif comp_number == 3 and player_number == 0:
-            print "Rock crushes Lizard"
-            print "Player wins!"
-        elif comp_number == 4 and player_number == 1:
-            print "Spock smashes Scissors"
-            print "Player wins!"
-        else:
-            print "bir"
+        print "You win!"
     elif gap_remainder >= 3:
         print "Computer wins!"
         

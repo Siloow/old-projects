@@ -1,17 +1,12 @@
-#Import random to let the computer function randomly choose between rock, paper or scissors
+﻿# import random to let the computer function randomly choose between rock, paper or scissors
 import random
 
-#Function to let the computer randomly choose between rock, paper or scissors
-def computer():
-    comp_choice = ["Rock", "Paper", "Scissors", "Lizard", "Spock"]
-    return (random.choice(comp_choice))
-
-#Variable to store computer outcome
-computer_choice = computer()
+# function to let the computer randomly choose between rock, paper or scissors
+computer_choice = random.choice(["Rock", "Paper", "Scissors", "Lizard", "Spock"])
 
 person_choice = raw_input("Choose between Rock, Paper, Scissors, Lizard or Spock\n")
 
-#Function to determine the outcome of the game
+# function to determine the outcome of the game
 def outcome(person_choice, computer_choice):
     if computer_choice == "Rock":
         print "Computer chose Rock"
@@ -19,25 +14,36 @@ def outcome(person_choice, computer_choice):
             print "Rock on Rock leads to nothing"
             print "Nobody won :("
         elif person_choice == "Paper": 
-            print "Paper grabs rock"
+            print "Paper covers rock"
             print "You win!"
         elif person_choice == "Scissors":
-            print "Rock beats scissors"
+            print "Rock crushes scissors"
             print "You lose :("
         elif person_choice == "Lizard":
-    
+            print "Rock crushes Lizard"
+            print "You lose :("
+        elif person_choice == "Spock":
+            print "Spock vaporisez Rock"
+            print "You win!"
         else:
-            print "But you've probably misspelled Rock, Paper or Scissors" 
+            print "But you've probably misspelled Rock, Paper, Scissors, Lizard or Spock" 
     elif computer_choice == "Paper":
         print "Computer chose Paper"
         if person_choice == "Rock":
-            print "Paper grabs rock"
+            print "Paper covers rock"
             print "You lose :("
         elif person_choice == "Paper": 
             print "Paper on paper leads to nothing"
             print "Nobody won"
         elif person_choice == "Scissors":
             print "Scissors cuts paper"
+            print "You win!"
+        elif person_choice == "Lizard":
+            print "Lizard eats Paper"
+            print "You win!"
+        elif person_choice == "Spock":
+            print "Paper disaproves Spock"
+            print "You lose :("
         else:
             print "But you've probably misspelled Rock, Paper or Scissors" 
     elif computer_choice == "Scissors":
@@ -75,7 +81,7 @@ def outcome(person_choice, computer_choice):
     else:
         print "You've probably misspelled Rock, Paper or Scissors"        
 
-#Calling the outcome function with the two variables inserted
+# calling the outcome function with the two variables inserted
 outcome(person_choice, computer_choice)
 
 
