@@ -1,4 +1,4 @@
-# get user string
+﻿# get user string
 def input():
 	print("What input do you want to encrypt?")
 	return raw_input()
@@ -16,7 +16,6 @@ def input_key():
 def encrypt_message(message, key):
 	store = ""
 
-    # for any input in
 	for i in message:
 		if i.isalpha():
 			num = ord(i)
