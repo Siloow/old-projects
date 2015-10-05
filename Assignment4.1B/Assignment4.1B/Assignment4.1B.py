@@ -1,4 +1,4 @@
-﻿temparature = input("What temparature (Celsius) do you want to be converted to Kelvin?\n")
+temparature = input("What temparature (Celsius) do you want to be converted to Kelvin?\n")
 
 def convert(temparature):
     if temparature < -273.15:
