@@ -1,4 +1,4 @@
-﻿temparature = input("What temparature from fahrenheit do you want to be converted to celsius?\n")
+temparature = input("What temparature from fahrenheit do you want to be converted to celsius?\n")
 
 def convert(temparature):
     if temparature < -459.67:
@@ -10,7 +10,4 @@ def convert(temparature):
         fahrenheit = (temparature - 32) / 1.8000
         return float(format(fahrenheit, '.2f'))
 
-print convert(temparature)
-
-
-
+print convert(temparature
