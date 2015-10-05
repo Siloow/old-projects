@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Assignment4Excercise1", "Assignment4Excercise1\Assignment4Excercise1.pyproj", "{2B674CFF-EB68-4669-A227-02423F52DBCB}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Assignment4.1", "Assignment4Excercise1\Assignment4.1.pyproj", "{2B674CFF-EB68-4669-A227-02423F52DBCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
