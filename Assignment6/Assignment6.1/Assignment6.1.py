@@ -1,4 +1,4 @@
-# full square
+﻿# full square
 a = int(raw_input("How big do you want the full square to be?\n"))
 
 m, n = a, a
@@ -17,4 +17,14 @@ m, n = a, a
 for i in range (m):
     for j in range(n):
         print '*' if i in [0, n-1] or j in [0, m-1] else ' ',
-    print ' '
+    print
+
+# triangle
+a = int(raw_input("How big do you want the full square to be?\n"))
+
+m, n = a, a
+
+for i in range (m):
+    for j in range (i + 1):
+        print '*',
+    print 
