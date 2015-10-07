@@ -1,4 +1,4 @@
-# Import random to let the computer function randomly choose between rock, paper, scissors, lizard or spock
+﻿# Import random to let the computer function randomly choose between rock, paper, scissors, lizard or spock
 import random
  
 # Function to convert the number to a string
@@ -14,7 +14,7 @@ def name_to_number(name):
     elif name == "Scissors":
         number = 4
     else:
-        print "incorrect input"
+        return "incorrect input"
     return number
     
 # Function to convert the number to a name 
@@ -30,7 +30,7 @@ def number_to_name(number):
     elif number == 4:
         name = "Scissors"
     else:
-        print "incorrect input"
+        return "incorrect input"
     return name
  
 def rpsls(player_choice):     
