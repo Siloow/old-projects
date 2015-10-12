@@ -1,4 +1,5 @@
-﻿# full square
+﻿import math
+# full square
 a = int(raw_input("How big do you want the full square to be?\n"))
 
 m, n = a, a
@@ -16,7 +17,7 @@ m, n = a, a
 
 for i in range (m):
     for j in range(n):
-        print '*' if i in [0, n-1] or j in [0, m-1] else ' ', # only print * if i is in array [0, n-1] so that it only prints the outline
+        print '*' if i in [0, n-1] or j in [0, m-1] else ' ', # only print * if i is in array [0, n-1] so that it only prints the outter lines
     print
 
 # triangle
@@ -37,10 +38,23 @@ n = a
 for i in range(1,n+1):
     for j in range(1,n-i+1): # in range of (1, (4, 3, 2, 1))
         print ' ',
-    for k in range(1,2*i): # in range of (1, (2, 4, 6, 8, 10))
+    for k in range(1,2*i): # in range of (1, (2, 4, 6, 8, 10)) always an even number is printed 
         print '*',
     print 
 
 # circle
+
+a = int(raw_input("How big do you want the circle to be?\n"))
+
+diameter = a
+radius = a / 2  # return an int "because fuck floats" - Python
+
+for i in range(diameter):
+    for j in range(diameter):
+        if math.sqrt((i - radius)**2 + (j - radius)**2) < radius:
+            print "*",
+        else:
+            print " ",
+    print
 
 
