@@ -1,4 +1,4 @@
-# store user input in a variable
+﻿# store user input in a variable
 temparature = input("What temparature from fahrenheit do you want to be converted to celsius?\n")
 
 

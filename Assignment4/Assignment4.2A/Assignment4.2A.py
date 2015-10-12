@@ -1,7 +1,10 @@
-﻿# Import random to let the computer function randomly choose between rock, paper, scissors, lizard or spock
+﻿# import random to let the computer function randomly choose between rock, paper or scissors
 import random
  
-# Function to convert the number to a string
+person = raw_input("Choose between Rock, Paper or Scissors")
+
+print person[2]
+'''# Function to convert the number to a string
 def name_to_number(name):
     if name == "Rock":
         number = 0
@@ -65,4 +68,4 @@ user_input = raw_input("Choose Rock, Paper or Scissors\n")
 rpsls(user_input)
 
 user_input = raw_input("Choose Rock, Paper or Scissors\n")
-rpsls(user_input)
+rpsls(user_input)'''
