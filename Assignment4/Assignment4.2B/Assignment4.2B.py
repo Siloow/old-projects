@@ -1,10 +1,32 @@
-# import random to let the computer function randomly choose between rock, paper or scissors
+﻿# import random to let the computer function randomly choose between rock, paper or scissors
 import random
 
 # function to let the computer randomly choose between rock, paper or scissors
-computer_choice = random.choice(["Rock", "Paper", "Scissors", "Lizard", "Spock"])
+rint = random.randint(1,5)
+def computer(rint):
+    if rint == 1:
+        return "Rock"
+    if rint == 2:
+        return "Paper"
+    if rint == 3:
+        return "Scissors"
+    if rint == 4:
+        return "Lizard"
+    if rint == 5:
+        return "Spock"
+    else:
+        return "incorrect"
+
+computer_choice = computer(rint)
+
 
 person_choice = raw_input("Choose between Rock, Paper, Scissors, Lizard or Spock\n")
+
+def person(person_choice):
+    if person_choice == "Rock" | "Paper" | "Scissors" | "Lizard" | "Spock" :
+        return person_choice
+    else:
+        print "incorrect"
 
 # function to determine the outcome of the game
 def outcome(person_choice, computer_choice):
@@ -45,7 +67,7 @@ def outcome(person_choice, computer_choice):
             print "Paper disaproves Spock"
             print "You lose :("
         else:
-            print "But you've probably misspelled Rock, Paper or Scissors" 
+            print "But you've probably misspelled Rock, Paper, Scissors, Lizard or Spock" 
     elif computer_choice == "Scissors":
         print "Computer chose Scissors"
         if person_choice == "Rock":
@@ -57,8 +79,14 @@ def outcome(person_choice, computer_choice):
         elif person_choice == "Scissors":
             print "Scissors on scissors leads to nothing"
             print "Nobody wins :("
+        elif person_choice == "Lizard":
+            print "Scissors decapitates Lizard"
+            print "You lose :("
+        elif person_choice == "Spock":
+            print "Spock smashes scissors"
+            print "You win!"
         else:
-            print "But you've probably misspelled Rock, Paper or Scissors" 
+            print "But you've probably misspelled Rock, Paper, Scissors, Lizard or Spock" 
     elif computer_choice == "Lizard":
         print "Computer chose Lizard"
         if person_choice == "Rock":
@@ -77,7 +105,7 @@ def outcome(person_choice, computer_choice):
             print "Lizard poisons Spock"
             print "You lose :("
         else:
-            print "But you've probably misspelled Rock, Paper or Scissors"
+            print "But you've probably misspelled Rock, Paper, Scissors, Lizard or Spock"
     else:
         print "You've probably misspelled Rock, Paper or Scissors"        
 
