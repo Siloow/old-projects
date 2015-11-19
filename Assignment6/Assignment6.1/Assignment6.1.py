@@ -56,5 +56,3 @@ for i in range(diameter):
         else:
             print " ",
     print
-
-
