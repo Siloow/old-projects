@@ -1,4 +1,4 @@
-class Empty:
+﻿class Empty:
     def __init__(self):
         self.IsEmpty = True
 
@@ -23,3 +23,19 @@ while not(x.IsEmpty):
     print (x.Value)
     x = x.Tail
 
+
+# get sum
+x = l
+a = 0
+while not(x.IsEmpty):
+    a = a + x.Value
+    x = x.Tail
+print (a)
+
+# concatenate the values
+x = l
+a = ''
+while not(x.IsEmpty):
+    a = a + str(x.Value)
+    x = x.Tail
+print (a)
