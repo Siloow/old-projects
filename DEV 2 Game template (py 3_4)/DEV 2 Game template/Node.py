@@ -31,6 +31,8 @@ def iter(l, f):
         f(l.Value)
         iter(l.Tail, f)
 
+#deactivate the comments below to active the method functionality
+
 #class Empty:
 #    def IsEmpty(self): return True
 #    def __str__(self):
