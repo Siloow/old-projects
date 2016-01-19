@@ -33,7 +33,8 @@ class Boat:
                      _width + self.Tile.Position.Y * offset))
 
     def canRemove(self):
-        return self.Tile.Harbor == True
+        if self.canRemove:
+            return self
 
     def Update(self):
         kaas = random.randint(0, 3)
@@ -51,10 +52,9 @@ class Boat:
         return Boat(boatLoc, self.Texture, self.canRemove)
 
 class Car:
-    def __init__(self, tile, tex, cm):
+    def __init__(self, tile, tex):
         self.Tile = tile
         self.Texture = tex
-        self.canRemove = cm
 
     def Draw(self):
         _width = int(offset / 3)
@@ -62,8 +62,9 @@ class Car:
                     (_width + self.Tile.Position.X * offset,
                      _width + self.Tile.Position.Y * offset))
 
-    def canRemove(self):
-        return self.Tile.Park == True
+    def isParked(self):
+        if self.Tile.Park:
+            return True
 
     def Update(self):
         kaas = random.randint(0, 8)
@@ -78,15 +79,15 @@ class Car:
         else:
             carLoc = self.Tile
 
-        return Car(carLoc, self.Texture, self.canRemove)
+        return Car(carLoc, self.Texture)
 
 
 def Update(entities):
-
-
-    filteredList = filter(map(entities, lambda x: x.Update()), lambda x: not x.canRemove())
+    updatedList = Empty
+    entityList = entities
+    filteredList = filter(map(entityList, lambda x: x.Update()), lambda x: not x.isParked())
     return filteredList
-
+    
 def Draw(entities):
     entityList = entities
     while not entityList.IsEmpty:
@@ -96,7 +97,7 @@ def Draw(entities):
 def Main():
   start = time.time()
 
-  entities = Node(Car(entry_road.Value, boat_texture, False), Empty)
+  entities = Node(Car(entry_road.Value, boat_texture), Empty)
 
   while True:    
     pygame.event.wait()
