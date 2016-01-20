@@ -32,6 +32,12 @@ def fold(l, f, z):
     else:
         return f(l.Value, fold(l.Tail, f, z))
 
+def iter(l, f):
+    if (l.IsEmpty):
+        return
+    else:
+        f(l.Value)
+        iter(l.Tail, f)
 
 def AUX_length(l, acc):
   if l.IsEmpty: return acc
