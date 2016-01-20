@@ -96,12 +96,7 @@ def Update(entities):
         if not entityList.Value.IsArrived():
             updatedList = Node(entityList.Value, updatedList)
         entityList = entityList.Tail
-     
-    filter = random.randint(0,1337)
-
-    if(filter % 12 == 0):
-        return updatedList
-        print('New car created.') 
+    
     return updatedList
 
 def Draw(entities):
