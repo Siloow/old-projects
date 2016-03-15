@@ -6,58 +6,21 @@ using System.Threading.Tasks;
 
 namespace App1
 {
-    class Box
+    class Test
     {
-        private double length;
-        private double breadth;
-        private double height;
-
-        public Box()
+        static int Sum(params int[] ints)
         {
-            Console.WriteLine("Object box is being created");
-        }
-        ~Box()
-        {
-            Console.WriteLine("Object box is being deleted");
+            int sum = 0;
+            for (int i = 0; i < ints.Length; i++)
+                sum += ints[i];
+            return sum;
         }
 
-        public void setLength(double len)
-        {
-            length = len;
-        }
-
-        public void setBreadth(double bre)
-        {
-            breadth = bre;
-        }
-        
-        public void setHeight(double hei)
-        {
-            height = hei;
-        }
-
-        public double getVolume()
-        {
-            return length * breadth * height;
-        }
-    }
-
-    class Program
-    {
         static void Main(string[] args)
         {
-            Box box1 = new Box();
-            Box box2 = new Box();
-            double volume;
-
-            box1.setBreadth(6.0);
-            box1.setHeight(6.0);
-            box1.setLength(6.0);
-
-            volume = box1.getVolume();
-
-            Console.WriteLine(volume);
-            Console.ReadKey();
+            int total = Sum(1, 2, 3, 4);
+            Console.WriteLine(total);
+            Console.ReadLine();
         }
     }
 }
