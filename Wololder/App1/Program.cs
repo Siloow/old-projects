@@ -6,21 +6,86 @@ using System.Threading.Tasks;
 
 namespace App1
 {
-    class Test
+    interface List<T>
     {
-        static int Sum(params int[] ints)
+        int Length { get; }
+        void Iter(Action<T> f);
+        List<U> Map<U>(Func<T, U> f);
+        List<T> Filter(Func<T, bool> p);
+    }
+
+    class Empty<T> : List<T>
+    {
+        public int Length
         {
-            int sum = 0;
-            for (int i = 0; i < ints.Length; i++)
-                sum += ints[i];
-            return sum;
+            get
+            {
+                return 0;
+            }
         }
 
+        public List<T> Filter(Func<T, bool> p)
+        {
+            return new Empty<T>();
+        }
+
+        public void Iter(Action<T> f)
+        { 
+        }
+
+        public List<U> Map<U>(Func<T, U> f)
+        {
+            return new Empty<U>();
+        }
+    }
+
+    class Node<T> : List<T>
+    {
+        T head;
+        List<T> tail;
+        public Node(T x, List<T> xs)
+        {
+            head = x;
+            tail = xs;
+        }
+
+        public int Length
+        {
+            get
+            {
+                return 1 + tail.Length;
+            }
+        }
+
+        public List<T> Filter(Func<T, bool> p)
+        {
+            if (p(head))
+                return new Node<T>(head, tail.Filter(p));
+            else
+                return tail.Filter(p);
+        }
+
+        public void Iter(Action<T> f)
+        {
+            f(head);
+            tail.Iter(f);
+        }
+
+        public List<U> Map<U>(Func<T, U> f)
+        {
+            return new Node<U>(f(head), tail.Map(f));
+        }
+    }
+
+    
+    
+
+
+    class Program
+    {
         static void Main(string[] args)
         {
-            int total = Sum(1, 2, 3, 4);
-            Console.WriteLine(total);
-            Console.ReadLine();
+                           
         }
     }
 }
