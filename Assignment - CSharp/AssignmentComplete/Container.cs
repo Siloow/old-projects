@@ -41,4 +41,38 @@ namespace AssignmentComplete
         }
     }
 
+    public class Product : IContainer
+    {
+        Texture2D texture;
+        Vector2 position;
+        int currentAmount;
+
+        public Product(int amount, Texture2D texture)
+        {
+            this.texture = texture;
+            AddContent(amount);
+        }
+
+        public int CurrentAmount => currentAmount;
+
+        public int MaxCapacity => 1000;
+
+        public Vector2 Position { get; set; }
+
+        public bool AddContent(int amount)
+        {
+            if (CurrentAmount + amount > MaxCapacity)
+            {
+                return false;
+            }
+            currentAmount += amount;
+            return true;
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(texture, Position, Color.White);
+        }
+    }
+
 }

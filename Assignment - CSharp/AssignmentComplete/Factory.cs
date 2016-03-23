@@ -44,6 +44,91 @@ namespace AssignmentComplete
             this.mineCart = mine_cart;
             this.oreContainer = ore_container;
 
+
+
+            processes.Add(new Repeat(new Seq(new Timer(1.0f), new Call(new AddOreBoxToMine(this)))));
+
+            processes.Add
+
+        }
+
+        public Vector2 Position => position;
+
+        public List<IContainer> ProductsToShip
+        {
+            get
+            {
+                return productsToShip;
+            }
+            set
+            {
+                productsToShip = value;
+            }
+        }
+
+
+        public ITruck GetReadyTruck()
+        {
+            Console.WriteLine("kaas");
+            return null;
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            foreach (var cart in ProductsToShip)
+            {
+                cart.Draw(spriteBatch);
+            }
+            spriteBatch.Draw(mine, Position, Color.White);
+
+        }
+
+        public void Update(float dt)
+        {
+            foreach (var process in processes)
+            {
+                process.Update(dt);
+            }
+        }
+    }
+
+    class Ikea : IFactory
+    {
+        class AddOreBoxToMine : IAction
+        {
+            Ikea ikea;
+            public AddOreBoxToMine(Ikea ikea)
+            {
+                this.ikea = ikea;
+            }
+            public void Run()
+            {
+                ikea.productsToShip.Add(CreateMineCart(ikea.Position + new Vector2(120, 40 + -30 * ikea.ProductsToShip.Count)));
+            }
+            Ore CreateMineCart(Vector2 position)
+            {
+                var box = new Ore(100, ikea.productCart);
+                box.Position = position;
+                return box;
+            }
+        }
+
+        Texture2D ikea, productContainer, productCart, truckTexure;
+        Vector2 position;
+
+        List<IContainer> productsToShip;
+        List<IStateMachine> processes;
+
+        public Ikea(Vector2 position, Texture2D truck_tex, Texture2D ikea, Texture2D product_cart, Texture2D product_container)
+        {
+            processes = new List<IStateMachine>();
+            productsToShip = new List<IContainer>();
+            this.position = position;
+            this.truckTexure = truck_tex;
+            this.ikea = ikea;
+            this.productCart = product_cart;
+            this.productContainer = product_container;
+
             processes.Add(new Repeat(new Seq(new Timer(1.0f), new Call(new AddOreBoxToMine(this)))));
 
         }
@@ -74,7 +159,7 @@ namespace AssignmentComplete
             {
                 cart.Draw(spriteBatch);
             }
-            spriteBatch.Draw(mine, Position, Color.White);
+            spriteBatch.Draw(ikea, Position, Color.White);
 
         }
 
