@@ -26,7 +26,7 @@ namespace AssignmentComplete
 
             processes = new List<IStateMachine>();
 
-            //this.processes.Add(new Repeat(new Call(new AddTruckFromFactory(factory1, trucks))));
+            this.processes.Add(new Repeat(new Call(new AddTruckFromFactory(factory1, trucks))));
             //this.processes.Add(new Repeat(new Call(new AddTruckFromFactory(factory2, trucks))));
 
 

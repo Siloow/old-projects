@@ -10,9 +10,8 @@ namespace lekkeroefenen
     {
         static void Main(string[] args)
         {
-            int[] Numbers = { 1, 2, 3, 4 };
-            IntArrayOpperations a = new IntArrayOpperations(Numbers);
-            Console.WriteLine(a.ProductArray());
+            Animal myAnimal = new Cat();
+            myAnimal.makeSound();
             Console.ReadLine();
         }
     }

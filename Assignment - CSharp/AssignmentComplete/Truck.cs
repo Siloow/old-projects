@@ -13,13 +13,21 @@ namespace AssignmentComplete
         private Vector2 position;
         private Vector2 velocity;
         private Texture2D texture;
-        
+        private Texture2D container_texture;
+        public Boolean reverse;
+
+        public Truck(Vector2 pos, Texture2D text_truck, Texture2D text_cont)
+        {
+            this.position = pos;
+            this.texture = text_truck;
+            this.container_texture = text_cont;
+        }
 
         public IContainer Container
         {
             get
             {
-                throw new NotImplementedException();
+                return this.container;
             }
         }
 
@@ -27,7 +35,11 @@ namespace AssignmentComplete
         {
             get
             {
-                throw new NotImplementedException();
+                return this.position;
+            }
+            set
+            {
+                this.position = value;
             }
         }
 
@@ -35,28 +47,40 @@ namespace AssignmentComplete
         {
             get
             {
-                throw new NotImplementedException();
+                return this.velocity;
+            }
+            set
+            {
+                this.velocity = value;
             }
         }
 
         public void AddContainer(IContainer container)
         {
-            throw new NotImplementedException();
+            this.container = container;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            throw new NotImplementedException();
+            spriteBatch.Draw(texture, position, Color.White);
+
+            if (this.container != null)
+            {
+                spriteBatch.Draw(this.container_texture, position, Color.White);
+            }
         }
 
         public void StartEngine()
         {
-            throw new NotImplementedException();
+            this.velocity = new Vector2(10, 0);
         }
 
         public void Update(float dt)
         {
-            throw new NotImplementedException();
+            if (this.container != null)
+            {
+                this.position.X = this.position.X + this.velocity.X * dt;
+            }
         }
     }
 }

@@ -28,10 +28,58 @@ namespace AssignmentComplete
             }
         }
 
+        
+        private class AddOreContainerToTruck : IAction
+        {
+            private Mine mine;
+
+            public AddOreContainerToTruck(Mine mine)
+            {
+                this.mine = mine;
+            }
+
+            public void Run()
+            {
+                Console.WriteLine("callled");
+                
+            }
+        }
+
+        private class RemoveTruckFromMine : IAction
+        {
+            private Mine mine;
+
+            public RemoveTruckFromMine(Mine mine)
+            {
+                this.mine = mine;
+            }
+
+            public void Run()
+            {
+                Console.WriteLine("remTruck");
+            }
+        }
+
+        private class AddEmptyTruckToMine : IAction
+        {
+            private Mine mine;
+
+            public AddEmptyTruckToMine(Mine mine)
+            {
+                this.mine = mine;
+            }
+
+            public void Run()
+            {
+                Console.WriteLine("addEmpty");
+            }
+        }
+
         Texture2D mine, oreContainer, mineCart, truckTexure;
         Vector2 position;
+        ITruck Truck;
 
-        List<IContainer> productsToShip;
+        List<IContainer> productsToShip, products;
         List<IStateMachine> processes;
 
         public Mine(Vector2 position, Texture2D truck_tex, Texture2D mine, Texture2D mine_cart, Texture2D ore_container)
@@ -44,11 +92,13 @@ namespace AssignmentComplete
             this.mineCart = mine_cart;
             this.oreContainer = ore_container;
 
-
-
             processes.Add(new Repeat(new Seq(new Timer(1.0f), new Call(new AddOreBoxToMine(this)))));
 
-            processes.Add
+            processes.Add(new Repeat(new Seq(new Wait(() => ProductsToShip.Count > 3),
+                            new Seq(new Call(new AddOreContainerToTruck(this)),
+                                new Seq(new Call(new RemoveTruckFromMine(this)),
+                                    new Seq(new Timer(1.0f),
+                                        new Call(new AddEmptyTruckToMine(this))))))));
 
         }
 
@@ -69,8 +119,19 @@ namespace AssignmentComplete
 
         public ITruck GetReadyTruck()
         {
-            Console.WriteLine("kaas");
+            ITruck departing = this.Truck;
+            IContainer ore_container = this.ProductsToShip.First();
+
+            ore_container.AddContent(ore_container.MaxCapacity - ore_container.CurrentAmount);
+
+            departing.AddContainer(ore_container);
+
+            if (this.Truck == null)
+            {
+                return new Truck(new Vector2(200, 200), truckTexure, oreContainer);
+            }
             return null;
+       
         }
 
         public void Draw(SpriteBatch spriteBatch)
