@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>d8d3ee81-7136-471f-837d-9bc0e64a9ed7</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\sil_d\Source\Repos\INFPRJ00-3\Main\Main\obj\x86\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>B467ADDD4723A72FC049CEABF3F57C8E3E3AA56134C53DB62974A6CCA5574C37</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>B9535BB8A2C3BEB3AE5C43D1BAD15704655710FCE9B9FE98F7E427FD9DFA4236</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>d8d3ee81-7136-471f-837d-9bc0e64a9ed7_1.0.0.0_x86__2nhxak9ym8m0a</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>d8d3ee81-7136-471f-837d-9bc0e64a9ed7_2nhxak9ym8m0a!App</RegisteredUserModeAppID>
     <RegisteredPackageID>d8d3ee81-7136-471f-837d-9bc0e64a9ed7</RegisteredPackageID>
@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\sil_d\Source\Repos\INFPRJ00-3\Main\Main\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-04-08T08:21:55.154</Modified>
+      <Modified>2016-04-11T08:30:28.250</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\sil_d\Source\Repos\INFPRJ00-3\Main\Main\bin\x86\Debug\Main.exe">
       <PackagePath>entrypoint\Main.exe</PackagePath>
-      <Modified>2016-04-08T08:21:53.353</Modified>
+      <Modified>2016-04-11T08:30:26.627</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sil_d\.nuget\packages\EntityFramework.Core\7.0.0-rc1-final\lib\netcore50\EntityFramework.Core.dll">
       <PackagePath>EntityFramework.Core.dll</PackagePath>
@@ -602,15 +602,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
-      <Modified>2016-04-07T11:13:41.772</Modified>
+      <Modified>2016-04-08T09:46:46.739</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sil_d\Source\Repos\INFPRJ00-3\Main\Main\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-04-08T08:21:54.724</Modified>
+      <Modified>2016-04-11T08:30:27.868</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sil_d\Source\Repos\INFPRJ00-3\Main\Main\bin\x86\Debug\Core\Main.exe">
       <PackagePath>Main.exe</PackagePath>
-      <Modified>2016-04-08T08:21:55.137</Modified>
+      <Modified>2016-04-11T08:30:28.242</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
