@@ -98,7 +98,7 @@
     </Rectangle>
     <Maps:MapControl x:ConnectionId='1'
             x:Name="Map"
-            MapServiceToken="Enter your MapServicePlan"
+            MapServiceToken="9gz4K83vtw8ZuGLnGEdY~yaWQBDV4oNy-C5bDzFIzxg~AkUCYEwiLSoXhHlbxQshgE7qag6NDlER1nkVn8xRnN4oKKRQFJFiZc-SwlLymm18"
             ZoomInteractionMode="GestureAndControl"
             LandmarksVisible="True"
             IsRightTapEnabled="true" Margin="10,0,0,0" Grid.Column="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"
