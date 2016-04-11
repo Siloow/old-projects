@@ -38,6 +38,7 @@ namespace BingMapTest
                 });
             MyMap.ZoomLevel = 16;
             base.OnNavigatedTo(e);
+      //lololtest
         }
     }
 }
