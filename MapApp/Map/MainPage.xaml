@@ -107,7 +107,7 @@
         <Button x:Name="button" Content="Do the magic!" HorizontalAlignment="Stretch" Height="70" Margin="90,197,76,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Style="{StaticResource ButtonStyle1}" Click="button_Click"/>
         <Button x:Name="button1" Content="Wifi Heatmap" HorizontalAlignment="Stretch" Margin="90,0,76,130" VerticalAlignment="Bottom" Style="{StaticResource ButtonStyle1}" Height="70" FontSize="20" FontFamily="Arial" Click="button1_Click"/>
         <Button x:Name="button2" Content="Snelheid Heatmap" HorizontalAlignment="Stretch" Height="70" Margin="90,0,76,44" VerticalAlignment="Bottom" Style="{StaticResource ButtonStyle1}" d:LayoutOverrides="LeftPosition, RightPosition" FontSize="20" FontFamily="Arial" Click="button2_Click"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="151,77,0,0" TextWrapping="Wrap" Text="1234AA" VerticalAlignment="Top" Height="20" Width="78" RenderTransformOrigin="0.684,0.323"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="151,77,0,0" TextWrapping="Wrap" Text="1234" VerticalAlignment="Top" Height="20" Width="78" RenderTransformOrigin="0.684,0.323" TextChanged="textBox_TextChanged"/>
         <TextBlock x:Name="textBlock" Foreground="Turquoise" HorizontalAlignment="Left" Margin="82,33,0,0" TextWrapping="Wrap" Text="Voer hieronder uw postcode in:" VerticalAlignment="Top" Height="44" Width="225" SelectionChanged="textBlock_SelectionChanged" SelectionHighlightColor="{x:Null}" FontFamily="Arial" FontWeight="Bold"/>
 
 
