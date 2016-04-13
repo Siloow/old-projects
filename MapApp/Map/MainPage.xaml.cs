@@ -15,6 +15,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Map;
 using System.Data;
+using System.Data.Common;
+
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -29,6 +32,11 @@ namespace Map
         string postcode;
         string postcodeComplete;
         string query = "SELECT * FROM dsldata WHERE postcode LIKE ";
+        string connectionString = @"Data Source = ServerName; user id=UserName; password=P@sswd!; Initial Catalog = DatabaseName;";
+
+        
+        //SqlConnection connection = new SqlConnection(connectionString);
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -63,7 +71,7 @@ namespace Map
                 //postcode versturen met query
                 else
                 {
-                    query = query + postcode;
+                    query = query + postcode + ";";
                     //Database code.....
                     
                 }
@@ -89,5 +97,8 @@ namespace Map
 
         }
     }
+
+
+
 }
 
