@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SpeedApplicationDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SpeedData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="postcode" Type="int" Nullable="false" />
+    <Property Name="snelheid" Type="int" Nullable="false" />
+    <Property Name="tech" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="centrale" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="datum" Type="datetime" Nullable="false" />
+    <Property Name="bevolkingsdichtheid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WifiData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="postcode" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="huisnummer" Type="int" Nullable="false" />
+    <Property Name="spotnaam" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="aanbieder" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="SpeedApplicationDBModelStoreContainer">
+    <EntitySet Name="SpeedData" EntityType="Self.SpeedData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WifiData" EntityType="Self.WifiData" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
