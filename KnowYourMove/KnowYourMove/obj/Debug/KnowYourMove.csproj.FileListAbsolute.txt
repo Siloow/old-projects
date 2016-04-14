@@ -1,0 +1,2 @@
+c:\users\sil_d\onedrive\documenten\visual studio 2015\Projects\KnowYourMove\KnowYourMove\bin\Debug\KnowYourMove.exe.config
+C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\bin\Debug\KnowYourMove.exe.config
