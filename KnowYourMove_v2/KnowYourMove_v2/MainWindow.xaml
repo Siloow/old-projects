@@ -40,7 +40,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <m:Map x:Name="MyMap" CredentialsProvider="9gz4K83vtw8ZuGLnGEdY~yaWQBDV4oNy-C5bDzFIzxg~AkUCYEwiLSoXhHlbxQshgE7qag6NDlER1nkVn8xRnN4oKKRQFJFiZc-SwlLymm18" Center="51.9,4.47" ZoomLevel="12" Margin="270,2,10,0" Grid.ColumnSpan="2"/>
-        <Rectangle Grid.ColumnSpan="2" Fill="DeepSkyBlue" HorizontalAlignment="Left" Height="379" Stroke="Blue" VerticalAlignment="Top" Width="270"/>
+        <Rectangle Grid.ColumnSpan="2" Fill="DeepSkyBlue" HorizontalAlignment="Left" Height="1251" Stroke="Blue" VerticalAlignment="Top" Width="270"/>
         <Button x:Name="button" Content="Generate data" HorizontalAlignment="Left" Margin="103,97,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="button_Click" Grid.ColumnSpan="2"/>
         <Button x:Name="button1" Content="WiFi Hotspots" HorizontalAlignment="Left" Height="30" Margin="103,258,0,0" VerticalAlignment="Top" Width="100" Click="button1_Click" Grid.ColumnSpan="2" RenderTransformOrigin="1.375,3.55"/>
         <Button x:Name="button2" Content="Snelheid heatmap" HorizontalAlignment="Left" Height="30" Margin="103,305,0,0" VerticalAlignment="Top" Width="100" Click="button2_Click" Grid.ColumnSpan="2"/>
