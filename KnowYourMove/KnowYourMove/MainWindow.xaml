@@ -6,16 +6,24 @@
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF" 
         xmlns:local="clr-namespace:KnowYourMove"
         mc:Ignorable="d"
-        Title="MainWindow" Height="381.278" Width="903.278">
+        Title="KnowYourMove" Height="408" Width="900">
   <Grid Margin="0,0,-8,-2">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="0*"/>
       <ColumnDefinition/>
     </Grid.ColumnDefinitions>
     <m:Map CredentialsProvider="9gz4K83vtw8ZuGLnGEdY~yaWQBDV4oNy-C5bDzFIzxg~AkUCYEwiLSoXhHlbxQshgE7qag6NDlER1nkVn8xRnN4oKKRQFJFiZc-SwlLymm18" Center="51.9,4.47" ZoomLevel="12" Margin="270,2,10,0" Grid.ColumnSpan="2"/>
-    <Button x:Name="button" Content="Generate data" HorizontalAlignment="Left" Margin="70,97,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="button_Click" Grid.ColumnSpan="2"/>
-    <Label x:Name="label" Content="Postcode:" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Height="34" Width="60" Grid.ColumnSpan="2"/>
-    <Button x:Name="button1" Content="WiFi Hotspots" HorizontalAlignment="Left" Height="30" Margin="70,224,0,0" VerticalAlignment="Top" Width="100" Click="button1_Click" Grid.ColumnSpan="2"/>
-    <Button x:Name="button2" Content="Snelheid heatmap" HorizontalAlignment="Left" Height="30" Margin="70,272,0,0" VerticalAlignment="Top" Width="100" Click="button2_Click" Grid.ColumnSpan="2"/>
+    <Rectangle Grid.ColumnSpan="2" Fill="DeepSkyBlue" HorizontalAlignment="Left" Height="379" Stroke="Blue" VerticalAlignment="Top" Width="270"/>
+    <Button x:Name="button" Content="Generate data" HorizontalAlignment="Left" Margin="103,97,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="button_Click" Grid.ColumnSpan="2"/>
+    <Button x:Name="button1" Content="WiFi Hotspots" HorizontalAlignment="Left" Height="30" Margin="103,258,0,0" VerticalAlignment="Top" Width="100" Click="button1_Click" Grid.ColumnSpan="2" RenderTransformOrigin="1.375,3.55"/>
+    <Button x:Name="button2" Content="Snelheid heatmap" HorizontalAlignment="Left" Height="30" Margin="103,305,0,0" VerticalAlignment="Top" Width="100" Click="button2_Click" Grid.ColumnSpan="2"/>
+    <Label x:Name="label" Content="Postcode:" HorizontalAlignment="Left" Margin="23,63,0,0" VerticalAlignment="Top" Height="34" Width="60" Grid.ColumnSpan="2"/>
+    <Label x:Name="label1" Grid.ColumnSpan="2" Content="Snelheid:" HorizontalAlignment="Left" Margin="23,154,0,0" VerticalAlignment="Top"/>
+    <Label x:Name="label2" Grid.ColumnSpan="2" Content="Technologie:" HorizontalAlignment="Left" Margin="23,180,0,0" VerticalAlignment="Top"/>
+    <Label x:Name="label3" Grid.ColumnSpan="2" Content="Centrale:" HorizontalAlignment="Left" Margin="23,206,0,0" VerticalAlignment="Top"/>
+    <TextBox x:Name="textBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="36" Margin="103,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="textBox_TextChanged" Text="Vul hier uw postcode in"/>
+    <TextBlock x:Name="textBlock" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="26" Margin="103,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+    <TextBlock x:Name="textBlock1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="26" Margin="103,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+    <TextBlock x:Name="textBlock2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="26" Margin="103,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
   </Grid>
 </Window>
