@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SpeedApplicationDBModelStoreContainer" CdmEntityContainer="SpeedApplicationDBEntities">
+    <EntitySetMapping Name="SpeedData">
+      <EntityTypeMapping TypeName="SpeedApplicationDBModel.SpeedData">
+        <MappingFragment StoreEntitySet="SpeedData">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="postcode" ColumnName="postcode" />
+          <ScalarProperty Name="snelheid" ColumnName="snelheid" />
+          <ScalarProperty Name="tech" ColumnName="tech" />
+          <ScalarProperty Name="centrale" ColumnName="centrale" />
+          <ScalarProperty Name="datum" ColumnName="datum" />
+          <ScalarProperty Name="bevolkingsdichtheid" ColumnName="bevolkingsdichtheid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WifiData">
+      <EntityTypeMapping TypeName="SpeedApplicationDBModel.WifiData">
+        <MappingFragment StoreEntitySet="WifiData">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="postcode" ColumnName="postcode" />
+          <ScalarProperty Name="huisnummer" ColumnName="huisnummer" />
+          <ScalarProperty Name="spotnaam" ColumnName="spotnaam" />
+          <ScalarProperty Name="aanbieder" ColumnName="aanbieder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
