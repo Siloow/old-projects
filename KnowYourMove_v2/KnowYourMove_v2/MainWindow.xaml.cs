@@ -26,7 +26,8 @@ namespace KnowYourMove_v2
         ConsoleBoxHandler outputter;
         MapPolygon newPolygon;
         MapLayer polygonPointLayer = new MapLayer();
-        public MainWindow()
+        bool valueChanged = false;
+    public MainWindow()
         {
             InitializeComponent();
             //MapWithPolygon.Focus();
@@ -140,8 +141,18 @@ namespace KnowYourMove_v2
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-
-        }
+      if (valueChanged == true)
+      {
+        string postcode = textBox.Text;
+        string query = "SELECT * FROM tabel WHERE postcode = " + postcode + ";";
+        string snelheid = "SELECT snelheid FROM tabel WHERE postcode = " + postcode + ";";
+        string technology = "SELECT technologie FROM tabel WHERE postcode = " + postcode + ";";
+        string centrale = "SELECT centrale from tabel WHERE postcode = " + postcode + ";";
+        textBlockSnelheid.Text = snelheid;
+        textBlockTechnologie.Text = technology;
+        textBlockCentrale.Text = centrale;
+      }
+    }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
@@ -150,7 +161,7 @@ namespace KnowYourMove_v2
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+      valueChanged = true;
         }
     }
 }
