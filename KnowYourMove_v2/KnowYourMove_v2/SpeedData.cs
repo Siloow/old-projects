@@ -7,17 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KnowYourMove
+namespace KnowYourMove_v2
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class WifiData
+    public partial class SpeedData
     {
         public int Id { get; set; }
-        public string postcode { get; set; }
-        public int huisnummer { get; set; }
-        public string spotnaam { get; set; }
-        public string aanbieder { get; set; }
+        public int postcode { get; set; }
+        public int snelheid { get; set; }
+        public string tech { get; set; }
+        public string centrale { get; set; }
+        public System.DateTime datum { get; set; }
+        public int bevolkingsdichtheid { get; set; }
     }
 }

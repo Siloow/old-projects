@@ -1,10 +1,10 @@
-﻿<Window x:Class="KnowYourMove.MainWindow"
+﻿<Window x:Class="KnowYourMove_v2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
-        xmlns:local="clr-namespace:KnowYourMove"
+        xmlns:local="clr-namespace:KnowYourMove_v2"
         mc:Ignorable="d"
         Title="KnowYourMove" Height="1280" Width="720">
     <!--<Grid x:Name="LayoutRoot" Background="White">

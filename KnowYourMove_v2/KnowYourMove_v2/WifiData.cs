@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KnowYourMove
+namespace KnowYourMove_v2
 {
     using System;
     using System.Collections.Generic;
