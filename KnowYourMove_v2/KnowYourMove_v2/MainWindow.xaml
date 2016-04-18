@@ -49,9 +49,9 @@
         <Label x:Name="label2" Grid.ColumnSpan="2" Content="Technologie:" HorizontalAlignment="Left" Margin="23,180,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label3" Grid.ColumnSpan="2" Content="Centrale:" HorizontalAlignment="Left" Margin="23,206,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="36" Margin="103,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="textBox_TextChanged" Text="Vul hier uw postcode in"/>
-        <TextBlock x:Name="textBlock" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="26" Margin="103,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
-        <TextBlock x:Name="textBlock1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="26" Margin="103,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
-        <TextBlock x:Name="textBlock2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="26" Margin="103,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+        <TextBlock x:Name="textBlockSnelheid" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="26" Margin="103,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+        <TextBlock x:Name="textBlockTechnologie" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="26" Margin="103,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+        <TextBlock x:Name="textBlockCentrale" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="26" Margin="103,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
         <TextBox Height="200" Width="400" x:Name="TestBox"/>
 
         <!--<m:Map x:Name="MyMap" CredentialsProvider = "9gz4K83vtw8ZuGLnGEdY~yaWQBDV4oNy-C5bDzFIzxg~AkUCYEwiLSoXhHlbxQshgE7qag6NDlER1nkVn8xRnN4oKKRQFJFiZc-SwlLymm18" Center="51.924420, 4.477733" ZoomLevel="16"/>-->
