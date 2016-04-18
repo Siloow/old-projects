@@ -27,5 +27,6 @@ namespace KnowYourMove
     
         public virtual DbSet<SpeedData> SpeedData { get; set; }
         public virtual DbSet<WifiData> WifiData { get; set; }
+        public virtual DbSet<SpeedLocations> SpeedLocations { get; set; }
     }
 }

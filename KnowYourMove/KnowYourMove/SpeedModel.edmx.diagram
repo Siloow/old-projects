@@ -7,6 +7,7 @@
       <Diagram DiagramId="6132fb69b920411cafc140013f70a74f" Name="Diagram1">
         <EntityTypeShape EntityType="SpeedApplicationDBModel.SpeedData" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SpeedApplicationDBModel.WifiData" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpeedApplicationDBModel.SpeedLocations" Width="1.5" PointX="3.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

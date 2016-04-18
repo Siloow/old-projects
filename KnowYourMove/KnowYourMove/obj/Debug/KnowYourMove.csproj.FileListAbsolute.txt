@@ -4,9 +4,10 @@ C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\bin\Debug\Kno
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\bin\Debug\KnowYourMove.pdb
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\bin\Debug\EntityFramework.dll
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\bin\Debug\EntityFramework.xml
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\obj\Debug\KnowYourMove.csprojResolveAssemblyReference.cache
+C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\obj\Debug\MainWindow.g.cs
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\obj\Debug\App.g.cs
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\obj\Debug\KnowYourMove_Content.g.cs
@@ -18,5 +19,4 @@ C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\obj\Debug\Kno
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\obj\Debug\KnowYourMove.csproj.GenerateResource.Cache
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\obj\Debug\KnowYourMove.exe
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\obj\Debug\KnowYourMove.pdb
-C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
-C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
+C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\obj\Debug\KnowYourMove.csprojResolveAssemblyReference.cache

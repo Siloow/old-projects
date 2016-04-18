@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -24,48 +25,60 @@ namespace KnowYourMove
     public partial class MainWindow : Window
     {
         ConsoleBoxHandler outputter;
-        MapPolygon newPolygon;
+        MapPolygon newPolygon = null;
         MapLayer polygonPointLayer = new MapLayer();
+        MapLayer labelLayer = new MapLayer();
+
         public MainWindow()
         {
             InitializeComponent();
-            //MapWithPolygon.Focus();
-            SetupNewPolygon();
+            MapWithPolygon.Focus();
+            //SetupNewPolygon();
 
             outputter = new ConsoleBoxHandler(TestBox);
             Console.SetOut(outputter);
             Console.WriteLine("Started");
-
-            using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
-            {
-                //SpeedData data = context.SpeedData.FirstOrDefault(r => r.centrale);
-
-                foreach (var row in context.SpeedData)
-                    Console.WriteLine(row.centrale);
-
-                foreach (var row in context.SpeedData)
-                    Console.WriteLine(row.postcode);
-            }
+            TextLayer.Children.Add(labelLayer);
         }
         private void SetupNewPolygon()
         {
-            newPolygon = new MapPolygon();
-            // Defines the polygon fill details
-            newPolygon.Locations = new LocationCollection();
-            newPolygon.Fill = new SolidColorBrush(Colors.Blue);
-            newPolygon.Stroke = new SolidColorBrush(Colors.Green);
-            newPolygon.StrokeThickness = 3;
-            newPolygon.Opacity = 0.8;
-            //Set focus back to the map so that +/- work for zoom in/out
-            //MapWithPolygon.Focus();
-            newPolygon.Locations = new LocationCollection()
+            using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
+            {
+                foreach (var row in context.SpeedLocations)
                 {
-                    new Location(51.9056826, 4.5130952),
-                    new Location(51.9056826, 4.576203),
-                    new Location(51.8781267, 4.576203),
-                    new Location(51.8781267, 4.5130952)};
+                    newPolygon = new MapPolygon();
+                    // Defines the polygon fill details
+                    newPolygon.Locations = new LocationCollection();
+                    newPolygon.Fill = new SolidColorBrush(Colors.BlueViolet);
+                    newPolygon.Stroke = new SolidColorBrush(Colors.Green);
+                    newPolygon.StrokeThickness = 3;
+                    newPolygon.Opacity = 0.3;
+                    //Set focus back to the map so that +/- work for zoom in/out
+                    MapWithPolygon.Focus();
+                    Label label = new Label();
 
-            MyMap.Children.Add(newPolygon);
+                    List<int> intList = new List<int>();
+                    intList.Add(row.postcode);
+                    {
+                        newPolygon.Locations = new LocationCollection()
+                        {
+                         new Location((double)row.nelat, (double)row.swlng),
+                         new Location((double)row.nelat, (double)row.nelng),
+                         new Location((double)row.swlat, (double)row.nelng),
+                         new Location((double)row.swlat, (double)row.swlng)
+                        };
+                        polygonPointLayer.Children.Clear();
+                        NewPolygonLayer.Children.Add(newPolygon);
+                    }
+                }
+            }
+
+            //newPolygon.Locations = new LocationCollection()
+            //    {
+            //        new Location(51.9056826, 4.5130952),
+            //        new Location(51.9056826, 4.576203),
+            //        new Location(51.8781267, 4.576203),
+            //        new Location(51.8781267, 4.5130952)};
 
             //    MapPolygon polygon = new MapPolygon();
             //    polygon.Fill = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Blue);
@@ -82,57 +95,52 @@ namespace KnowYourMove
             //    MyMap.Children.Add(polygon);
         }
 
-        //private void MapWithPolygon_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void SetupNewData()
+        {
+            using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
+            {
+                foreach (var row in context.SpeedLocations)
+                {
+                    foreach (var data in context.SpeedData)
+                    {
+                        Label l = new Label();
+                        l.Content = data.snelheid;
+                        Location location = new Location((double)row.cnlat, (double)row.cnlng);
+                        labelLayer.AddChild(l, location);
+                    }
+                }
+
+            }
+        }
+        //private void SetupNewText()
         //{
-        //    e.Handled = true;
-        //    // Creates a location for a single polygon point and adds it to
-        //    // the polygon's point location list.
-        //    Point mousePosition = e.GetPosition(this);
-        //    //Convert the mouse coordinates to a location on the map
-        //    Location polygonPointLocation = MapWithPolygon.ViewportPointToLocation(
-        //        mousePosition);
-        //    newPolygon.Locations.Add(polygonPointLocation);
-
-        //    // A visual representation of a polygon point.
-        //    Rectangle r = new Rectangle();
-        //    r.Fill = new SolidColorBrush(Colors.Red);
-        //    r.Stroke = new SolidColorBrush(Colors.Yellow);
-        //    r.StrokeThickness = 1;
-        //    r.Width = 8;
-        //    r.Height = 8;
-
-        //    // Adds a small square where the user clicked, to mark the polygon point.
-        //    polygonPointLayer.AddChild(r, polygonPointLocation);
-        //    //Set focus back to the map so that +/- work for zoom in/out
-        //    MapWithPolygon.Focus();
-
-        //}
-
-        //private void btnCreatePolygon_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //If there are two or more points, add the polygon layer to the map
-        //    if (newPolygon.Locations.Count >= 2)
+        //    using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
         //    {
-        //        // Removes the polygon points layer.
-        //        polygonPointLayer.Children.Clear();
-
-        //        if (!polygonPointLayer.Children.Contains(newPolygon))
+        //        foreach (var row in context.SpeedLocations)
         //        {
-        //            // Adds the filled polygon layer to the map.
-        //            NewPolygonLayer.Children.Add(newPolygon);
-        //            SetupNewPolygon();
+        //            Label label = new Label();
+
+        //            foreach (var data in context.SpeedData)
+        //            {
+        //                // Create a label for speed information
+        //                label.Content = data.snelheid;
+
+        //                Location loc = new Location((double)row.cnlat, (double)row.cnlng);
+        //                //labelLayer.AddChild(label, loc);
+        //                TextLayer.Children.Add(label);
+
+        //            }
         //        }
         //    }
         //}
 
-        private void btnRemovePolygon_Click(object sender, RoutedEventArgs e)
+        private void btnCreatePolygon_Click(object sender, RoutedEventArgs e)
         {
-            if (MyMap.Children.Contains(newPolygon))
-            {
-                MyMap.Children.Remove(newPolygon);
-            }
-        }
+            SetupNewPolygon();
 
+            labelLayer.Children.Clear();
+            SetupNewData();
+        }
         private void button1_Click(object sender, RoutedEventArgs e)
         {
 

@@ -25,5 +25,19 @@
   <EntityContainer Name="SpeedApplicationDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="SpeedData" EntityType="Self.SpeedData" />
     <EntitySet Name="WifiData" EntityType="Self.WifiData" />
+    <EntitySet Name="SpeedLocations" EntityType="SpeedApplicationDBModel.SpeedLocations" />
   </EntityContainer>
+  <EntityType Name="SpeedLocations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nelat" Type="Double" />
+    <Property Name="nelng" Type="Double" />
+    <Property Name="swlat" Type="Double" />
+    <Property Name="swlng" Type="Double" />
+    <Property Name="cnlat" Type="Double" />
+    <Property Name="cnlng" Type="Double" />
+    <Property Name="postcode" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

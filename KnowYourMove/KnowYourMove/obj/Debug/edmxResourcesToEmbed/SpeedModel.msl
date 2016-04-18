@@ -25,5 +25,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SpeedLocations">
+      <EntityTypeMapping TypeName="SpeedApplicationDBModel.SpeedLocations">
+        <MappingFragment StoreEntitySet="SpeedLocations">
+          <ScalarProperty Name="postcode" ColumnName="postcode" />
+          <ScalarProperty Name="cnlng" ColumnName="cnlng" />
+          <ScalarProperty Name="cnlat" ColumnName="cnlat" />
+          <ScalarProperty Name="swlng" ColumnName="swlng" />
+          <ScalarProperty Name="swlat" ColumnName="swlat" />
+          <ScalarProperty Name="nelng" ColumnName="nelng" />
+          <ScalarProperty Name="nelat" ColumnName="nelat" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
