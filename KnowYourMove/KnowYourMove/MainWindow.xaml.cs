@@ -73,26 +73,6 @@ namespace KnowYourMove
                 }
             }
 
-            //newPolygon.Locations = new LocationCollection()
-            //    {
-            //        new Location(51.9056826, 4.5130952),
-            //        new Location(51.9056826, 4.576203),
-            //        new Location(51.8781267, 4.576203),
-            //        new Location(51.8781267, 4.5130952)};
-
-            //    MapPolygon polygon = new MapPolygon();
-            //    polygon.Fill = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Blue);
-            //    polygon.Stroke = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Green);
-            //    polygon.StrokeThickness = 5;
-            //    polygon.Opacity = 0.7;
-            //    polygon.Locations = new LocationCollection()
-            //    {
-            //        new Location(51.9056826, 4.5130952),
-            //        new Location(51.9056826, 4.576203),
-            //        new Location(51.8781267, 4.576203),
-            //        new Location(51.8781267, 4.5130952)};
-
-            //    MyMap.Children.Add(polygon);
         }
 
         private void SetupNewData()
@@ -112,27 +92,7 @@ namespace KnowYourMove
 
             }
         }
-        //private void SetupNewText()
-        //{
-        //    using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
-        //    {
-        //        foreach (var row in context.SpeedLocations)
-        //        {
-        //            Label label = new Label();
 
-        //            foreach (var data in context.SpeedData)
-        //            {
-        //                // Create a label for speed information
-        //                label.Content = data.snelheid;
-
-        //                Location loc = new Location((double)row.cnlat, (double)row.cnlng);
-        //                //labelLayer.AddChild(label, loc);
-        //                TextLayer.Children.Add(label);
-
-        //            }
-        //        }
-        //    }
-        //}
 
         private void btnCreatePolygon_Click(object sender, RoutedEventArgs e)
         {
@@ -150,7 +110,6 @@ namespace KnowYourMove
         {
 
         }
-
         private void button2_Click(object sender, RoutedEventArgs e)
         {
 
