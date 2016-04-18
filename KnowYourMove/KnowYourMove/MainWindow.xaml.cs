@@ -33,7 +33,6 @@ namespace KnowYourMove
         {
             InitializeComponent();
             MapWithPolygon.Focus();
-            //SetupNewPolygon();
 
             outputter = new ConsoleBoxHandler(TestBox);
             Console.SetOut(outputter);
@@ -57,8 +56,6 @@ namespace KnowYourMove
                     MapWithPolygon.Focus();
                     Label label = new Label();
 
-                    List<int> intList = new List<int>();
-                    intList.Add(row.postcode);
                     {
                         newPolygon.Locations = new LocationCollection()
                         {
@@ -72,28 +69,36 @@ namespace KnowYourMove
                     }
                 }
             }
-
         }
-
         private void SetupNewData()
         {
             using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
             {
-                foreach (var row in context.SpeedLocations)
+              
+                foreach (var data in context.SpeedData)
                 {
-                    foreach (var data in context.SpeedData)
-                    {
-                        Label l = new Label();
-                        l.Content = data.snelheid;
-                        Location location = new Location((double)row.cnlat, (double)row.cnlng);
-                        labelLayer.AddChild(l, location);
-                    }
-                }
+                    Label l = new Label();
+                    l.Content = data.snelheid;
+                    var a = context.SpeedLocations.Where(f => f.postcode == data.postcode).Select(c => c.cnlat).SingleOrDefault();
+                    var b = context.SpeedLocations.Where(f => f.postcode == data.postcode).Select(c => c.cnlng).SingleOrDefault();
 
+                    Location location = new Location((double)a, (double)b);
+                    labelLayer.AddChild(l, location);
+                }
             }
         }
 
+        private void GetData()
+        {
+            using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
+            {
+                int a = Int32.Parse(textBox.Text);
 
+                var speed = context.SpeedData.Where(f => f.postcode == a).Select(c => c.snelheid).SingleOrDefault();
+
+                textBlock.Text = Convert.ToString(speed);
+            }
+        }
         private void btnCreatePolygon_Click(object sender, RoutedEventArgs e)
         {
             SetupNewPolygon();
@@ -101,6 +106,7 @@ namespace KnowYourMove
             labelLayer.Children.Clear();
             SetupNewData();
         }
+
         private void button1_Click(object sender, RoutedEventArgs e)
         {
 
@@ -108,8 +114,9 @@ namespace KnowYourMove
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-
+            GetData();
         }
+
         private void button2_Click(object sender, RoutedEventArgs e)
         {
 
