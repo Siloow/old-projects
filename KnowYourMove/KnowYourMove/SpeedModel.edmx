@@ -15,7 +15,6 @@
           <Property Name="tech" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="centrale" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="datum" Type="datetime" Nullable="false" />
-          <Property Name="bevolkingsdichtheid" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="SpeedLocations">
           <Key>
@@ -38,7 +37,9 @@
           <Property Name="postcode" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="huisnummer" Type="int" Nullable="false" />
           <Property Name="spotnaam" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="aanbieder" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="aanbieder" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lat" Type="float" />
+          <Property Name="long" Type="float" />
         </EntityType>
         <EntityContainer Name="SpeedApplicationDBModelStoreContainer">
           <EntitySet Name="SpeedData" EntityType="Self.SpeedData" Schema="dbo" store:Type="Tables" />
@@ -49,6 +50,11 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SpeedApplicationDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SpeedApplicationDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SpeedData" EntityType="SpeedApplicationDBModel.SpeedData" />
+          <EntitySet Name="SpeedLocations" EntityType="SpeedApplicationDBModel.SpeedLocations" />
+          <EntitySet Name="WifiData" EntityType="SpeedApplicationDBModel.WifiData" />
+        </EntityContainer>
         <EntityType Name="SpeedData">
           <Key>
             <PropertyRef Name="Id" />
@@ -56,26 +62,10 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="postcode" Type="Int32" Nullable="false" />
           <Property Name="snelheid" Type="Int32" Nullable="false" />
-          <Property Name="tech" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="centrale" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tech" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="centrale" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="datum" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="bevolkingsdichtheid" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="WifiData">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="postcode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="huisnummer" Type="Int32" Nullable="false" />
-          <Property Name="spotnaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="aanbieder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityContainer Name="SpeedApplicationDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="SpeedData" EntityType="Self.SpeedData" />
-          <EntitySet Name="WifiData" EntityType="Self.WifiData" />
-          <EntitySet Name="SpeedLocations" EntityType="SpeedApplicationDBModel.SpeedLocations" />
-        </EntityContainer>
         <EntityType Name="SpeedLocations">
           <Key>
             <PropertyRef Name="Id" />
@@ -89,6 +79,18 @@
           <Property Name="cnlng" Type="Double" />
           <Property Name="postcode" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="WifiData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="postcode" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="huisnummer" Type="Int32" Nullable="false" />
+          <Property Name="spotnaam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aanbieder" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lat" Type="Double" />
+          <Property Name="long" Type="Double" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -98,24 +100,12 @@
           <EntitySetMapping Name="SpeedData">
             <EntityTypeMapping TypeName="SpeedApplicationDBModel.SpeedData">
               <MappingFragment StoreEntitySet="SpeedData">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="postcode" ColumnName="postcode" />
-                <ScalarProperty Name="snelheid" ColumnName="snelheid" />
-                <ScalarProperty Name="tech" ColumnName="tech" />
-                <ScalarProperty Name="centrale" ColumnName="centrale" />
                 <ScalarProperty Name="datum" ColumnName="datum" />
-                <ScalarProperty Name="bevolkingsdichtheid" ColumnName="bevolkingsdichtheid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="WifiData">
-            <EntityTypeMapping TypeName="SpeedApplicationDBModel.WifiData">
-              <MappingFragment StoreEntitySet="WifiData">
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="centrale" ColumnName="centrale" />
+                <ScalarProperty Name="tech" ColumnName="tech" />
+                <ScalarProperty Name="snelheid" ColumnName="snelheid" />
                 <ScalarProperty Name="postcode" ColumnName="postcode" />
-                <ScalarProperty Name="huisnummer" ColumnName="huisnummer" />
-                <ScalarProperty Name="spotnaam" ColumnName="spotnaam" />
-                <ScalarProperty Name="aanbieder" ColumnName="aanbieder" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -129,6 +119,19 @@
                 <ScalarProperty Name="swlat" ColumnName="swlat" />
                 <ScalarProperty Name="nelng" ColumnName="nelng" />
                 <ScalarProperty Name="nelat" ColumnName="nelat" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WifiData">
+            <EntityTypeMapping TypeName="SpeedApplicationDBModel.WifiData">
+              <MappingFragment StoreEntitySet="WifiData">
+                <ScalarProperty Name="long" ColumnName="long" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="aanbieder" ColumnName="aanbieder" />
+                <ScalarProperty Name="spotnaam" ColumnName="spotnaam" />
+                <ScalarProperty Name="huisnummer" ColumnName="huisnummer" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

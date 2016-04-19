@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Maps.MapControl.WPF;
 using Microsoft.Maps.MapControl.WPF.Design;
+using System.Windows.Controls.DataVisualization.Charting;
 
 namespace KnowYourMove
 {
@@ -24,23 +25,34 @@ namespace KnowYourMove
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Create instances of everything that is needed to be showed in the main screen
+        /// </summary>
         ConsoleBoxHandler outputter;
         MapPolygon newPolygon = null;
         MapLayer polygonPointLayer = new MapLayer();
         MapLayer labelLayer = new MapLayer();
+        MapLayer wifiLayer = new MapLayer();
 
         public MainWindow()
         {
             InitializeComponent();
+            // Focus the map on the center points
             MapWithPolygon.Focus();
+            LoadDataIntoChart();
 
+            // Display a console onscreen for debugging purposes
             outputter = new ConsoleBoxHandler(TestBox);
             Console.SetOut(outputter);
             Console.WriteLine("Started");
+
+            // Add the layer of internet speeds to the TextLayer xaml layer
             TextLayer.Children.Add(labelLayer);
+            WifiLayer.Children.Add(wifiLayer);
         }
-        private void SetupNewPolygon()
+        private void SetupNewPolygon() //  Run this to add a layer the postalcode heatmap
         {
+            // Create a disposeable connection to the database to query against it
             using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
             {
                 foreach (var row in context.SpeedLocations)
@@ -48,15 +60,14 @@ namespace KnowYourMove
                     newPolygon = new MapPolygon();
                     // Defines the polygon fill details
                     newPolygon.Locations = new LocationCollection();
-                    newPolygon.Fill = new SolidColorBrush(Colors.BlueViolet);
+                    Color a = Color.FromRgb(255, 255, 255);
+                    newPolygon.Fill = new SolidColorBrush(a);
                     newPolygon.Stroke = new SolidColorBrush(Colors.Green);
                     newPolygon.StrokeThickness = 3;
                     newPolygon.Opacity = 0.3;
-                    //Set focus back to the map so that +/- work for zoom in/out
                     MapWithPolygon.Focus();
-                    Label label = new Label();
 
-                    {
+                    { // Add the four points to create a square that covers a postalcode
                         newPolygon.Locations = new LocationCollection()
                         {
                          new Location((double)row.nelat, (double)row.swlng),
@@ -65,16 +76,17 @@ namespace KnowYourMove
                          new Location((double)row.swlat, (double)row.swlng)
                         };
                         polygonPointLayer.Children.Clear();
+                        // Add the points to the map
                         NewPolygonLayer.Children.Add(newPolygon);
                     }
                 }
             }
         }
-        private void SetupNewData()
+
+        private void SetupNewData() // Run this to add the speed data of each postal code to the map
         {
             using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
             {
-              
                 foreach (var data in context.SpeedData)
                 {
                     Label l = new Label();
@@ -88,17 +100,72 @@ namespace KnowYourMove
             }
         }
 
-        private void GetData()
+        private void SetupNewWifiSpots()
         {
             using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
             {
-                int a = Int32.Parse(textBox.Text);
+                foreach (var data in context.WifiData)
+                {
+                    Pushpin p = new Pushpin();
+                    p.Content = data.aanbieder;
 
-                var speed = context.SpeedData.Where(f => f.postcode == a).Select(c => c.snelheid).SingleOrDefault();
-
-                textBlock.Text = Convert.ToString(speed);
+                    Location location = new Location((double)data.lat, (double)data.@long);
+                    wifiLayer.AddChild(p, location);
+                }
             }
         }
+    
+
+        private void GetData() // Run this to query a specific postalcode
+        {
+            using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
+            {
+                int num1;
+                bool result = int.TryParse(textBox.Text, out num1);
+                if (result == true && textBox.Text.Length == 4)
+                {
+                    // Convert user input to an int to compare it to the database values
+                    int userInput = Int32.Parse(textBox.Text);
+
+                    var speed = context.SpeedData.Where(f => f.postcode == userInput).Select(c => c.snelheid).SingleOrDefault();
+                    var tech = context.SpeedData.Where(f => f.postcode == userInput).Select(c => c.tech).SingleOrDefault();
+                    var central = context.SpeedData.Where(f => f.postcode == userInput).Select(c => c.centrale).SingleOrDefault();
+                    textBlock.Text = Convert.ToString(speed);
+                    textBlock1.Text = Convert.ToString(tech);
+                    textBlock2.Text = Convert.ToString(central);
+                }
+                else
+                {
+                    textBox.Text = "Vul een geldige postcode in";
+                    textBlock.Text = "n/a";
+                    textBlock1.Text = "n/a";
+                    textBlock2.Text = "n/a";
+                }
+            }
+        }
+
+        private void LoadDataIntoChart()
+        {
+            using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
+            {
+                //var name = context.SpeedData.Select(c => c.centrale).SingleOrDefault();
+                //var speed = context.SpeedData.Select(c => c.snelheid).SingleOrDefault();
+                var tech = context.SpeedData.Where(c => c.tech == "Vdsl2_Pots").Count();
+                var tech1 = context.SpeedData.Where(c => c.tech == "Adsl2_Pots").Count();
+                var tech2 = context.SpeedData.Where(c => c.tech == "Vvdsl2_Pots").Count();
+
+                Console.WriteLine(tech);
+
+                ((PieSeries)pieChart.Series[0]).ItemsSource =
+                new KeyValuePair<string, int>[]
+                {
+                    new KeyValuePair<string, int>("Vdsl2_Pots", tech),
+                    new KeyValuePair<string, int>("Adsl2_Pots", tech1),
+                    new KeyValuePair<string, int>("Vvdsl2_Pots", tech2) };
+            }
+
+        } 
+        
         private void btnCreatePolygon_Click(object sender, RoutedEventArgs e)
         {
             SetupNewPolygon();
@@ -109,6 +176,9 @@ namespace KnowYourMove
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            labelLayer.Children.Clear();
+            NewPolygonLayer.Children.Clear();
+            SetupNewWifiSpots();
 
         }
 

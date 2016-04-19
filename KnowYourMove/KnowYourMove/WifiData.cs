@@ -19,5 +19,7 @@ namespace KnowYourMove
         public int huisnummer { get; set; }
         public string spotnaam { get; set; }
         public string aanbieder { get; set; }
+        public Nullable<double> lat { get; set; }
+        public Nullable<double> @long { get; set; }
     }
 }

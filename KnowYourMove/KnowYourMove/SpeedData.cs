@@ -20,6 +20,5 @@ namespace KnowYourMove
         public string tech { get; set; }
         public string centrale { get; set; }
         public System.DateTime datum { get; set; }
-        public int bevolkingsdichtheid { get; set; }
     }
 }

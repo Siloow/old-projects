@@ -1,10 +1,11 @@
-﻿<Window x:Class="KnowYourMove.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         xmlns:local="clr-namespace:KnowYourMove"
+        xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" x:Class="KnowYourMove.MainWindow"
         mc:Ignorable="d"
         Title="KnowYourMove" Height="720" Width="1280">
     <Grid x:Name="LayoutRoot" Background="White">
@@ -14,35 +15,41 @@
             <RowDefinition Height="194*"/>
         </Grid.RowDefinitions>
         <m:Map x:Name="MapWithPolygon" Grid.RowSpan="3"
-                   Center="51.924420, 4.477733" ZoomLevel="16"
-                   Mode="Road"
-                   CredentialsProvider="9gz4K83vtw8ZuGLnGEdY~yaWQBDV4oNy-C5bDzFIzxg~AkUCYEwiLSoXhHlbxQshgE7qag6NDlER1nkVn8xRnN4oKKRQFJFiZc-SwlLymm18"
+			Center="51.924420, 4.477733" ZoomLevel="10"
+			Mode="Road"
+			CredentialsProvider="9gz4K83vtw8ZuGLnGEdY~yaWQBDV4oNy-C5bDzFIzxg~AkUCYEwiLSoXhHlbxQshgE7qag6NDlER1nkVn8xRnN4oKKRQFJFiZc-SwlLymm18"
                 >
-            <m:MapLayer x:Name="NewPolygonLayer">
-                <TextBlock x:Name="txtDescription" Margin="5">
-                        Click on the map xD
-                </TextBlock>
-                <Button x:Name="btnCreatePolygon"
-                            HorizontalAlignment="Left" VerticalAlignment="Top" Tag="false"
-                            Click="btnCreatePolygon_Click" Height="25" Width="100" Margin="310 0 0 0">
-                    <TextBlock x:Name="txtButton">Create Polygon</TextBlock>
-                </Button>
-            </m:MapLayer>
-            <m:MapLayer x:Name="TextLayer"></m:MapLayer>
+            <m:MapLayer x:Name="WifiLayer" />
+            <m:MapLayer x:Name="NewPolygonLayer"/>
+            <m:MapLayer x:Name="TextLayer"/>
+
+            <chartingToolkit:Chart Name="pieChart"
+                                   Title="Overheersende internettechnieken in Rotterdam"
+                                   LegendTitle="Soort technologie"
+                                   Background="AliceBlue"
+                                   HorizontalAlignment="Left" Height="539" VerticalAlignment="Top" Width="662" Margin="1248,360,-638,-210">
+                <chartingToolkit:Chart.Series>
+                    <chartingToolkit:PieSeries Title="Test"
+                                               IndependentValueBinding="{Binding Path=Key}"
+                                               DependentValueBinding="{Binding Path=Value}">
+                    </chartingToolkit:PieSeries>
+                </chartingToolkit:Chart.Series>
+
+            </chartingToolkit:Chart>
         </m:Map>
         <!--<m:Map x:Name="MyMap" CredentialsProvider="9gz4K83vtw8ZuGLnGEdY~yaWQBDV4oNy-C5bDzFIzxg~AkUCYEwiLSoXhHlbxQshgE7qag6NDlER1nkVn8xRnN4oKKRQFJFiZc-SwlLymm18" Center="51.9,4.47" ZoomLevel="12" Margin="270,2,10,0" Grid.ColumnSpan="2"/>-->
         <Rectangle Fill="DeepSkyBlue" HorizontalAlignment="Left" Stroke="Blue" Width="270" Height="681" VerticalAlignment="Top" Grid.RowSpan="3"/>
         <Button x:Name="button" Content="Generate data" HorizontalAlignment="Left" Margin="103,62,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="button_Click" Grid.Row="1"/>
         <Button x:Name="button1" Content="WiFi Hotspots" HorizontalAlignment="Left" Height="30" Margin="103,223,0,0" VerticalAlignment="Top" Width="100" Click="button1_Click" RenderTransformOrigin="1.375,3.55" Grid.Row="1"/>
-        <Button x:Name="button2" Content="Snelheid heatmap" HorizontalAlignment="Left" Height="30" Margin="103,4,0,0" VerticalAlignment="Top" Width="100" Click="button2_Click" Grid.Row="2"/>
+        <Button x:Name="button2" Content="Snelheid heatmap" HorizontalAlignment="Left" Height="30" Margin="103,4,0,0" VerticalAlignment="Top" Width="100" Click="btnCreatePolygon_Click" Grid.Row="2"/>
         <Label x:Name="label" Content="Postcode:" HorizontalAlignment="Left" Margin="23,28,0,0" VerticalAlignment="Top" Height="34" Width="60" Grid.Row="1"/>
         <Label x:Name="label1" Content="Snelheid:" HorizontalAlignment="Left" Margin="23,119,0,0" VerticalAlignment="Top" Grid.Row="1"/>
         <Label x:Name="label2" Content="Technologie:" HorizontalAlignment="Left" Margin="23,145,0,0" VerticalAlignment="Top" Grid.Row="1"/>
         <Label x:Name="label3" Content="Centrale:" HorizontalAlignment="Left" Margin="23,171,0,0" VerticalAlignment="Top" Grid.Row="1"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="36" Margin="103,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="textBox_TextChanged" Text="Vul hier uw postcode in" Grid.Row="1"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="26" Margin="103,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Grid.Row="1"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="26" Margin="103,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Grid.Row="1"/>
-        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="26" Margin="103,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Grid.Row="1"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="26" Margin="103,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Grid.Row="1"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="26" Margin="103,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Grid.Row="1"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="26" Margin="103,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Grid.Row="1"/>
         <TextBox Height="200" Width="400" x:Name="TestBox" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,32,56" Grid.Row="1"/>
 
         <!--<m:Map x:Name="MyMap" CredentialsProvider = "9gz4K83vtw8ZuGLnGEdY~yaWQBDV4oNy-C5bDzFIzxg~AkUCYEwiLSoXhHlbxQshgE7qag6NDlER1nkVn8xRnN4oKKRQFJFiZc-SwlLymm18" Center="51.924420, 4.477733" ZoomLevel="16"/>-->

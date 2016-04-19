@@ -4,24 +4,12 @@
     <EntitySetMapping Name="SpeedData">
       <EntityTypeMapping TypeName="SpeedApplicationDBModel.SpeedData">
         <MappingFragment StoreEntitySet="SpeedData">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="postcode" ColumnName="postcode" />
-          <ScalarProperty Name="snelheid" ColumnName="snelheid" />
-          <ScalarProperty Name="tech" ColumnName="tech" />
-          <ScalarProperty Name="centrale" ColumnName="centrale" />
           <ScalarProperty Name="datum" ColumnName="datum" />
-          <ScalarProperty Name="bevolkingsdichtheid" ColumnName="bevolkingsdichtheid" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="WifiData">
-      <EntityTypeMapping TypeName="SpeedApplicationDBModel.WifiData">
-        <MappingFragment StoreEntitySet="WifiData">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="centrale" ColumnName="centrale" />
+          <ScalarProperty Name="tech" ColumnName="tech" />
+          <ScalarProperty Name="snelheid" ColumnName="snelheid" />
           <ScalarProperty Name="postcode" ColumnName="postcode" />
-          <ScalarProperty Name="huisnummer" ColumnName="huisnummer" />
-          <ScalarProperty Name="spotnaam" ColumnName="spotnaam" />
-          <ScalarProperty Name="aanbieder" ColumnName="aanbieder" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -35,6 +23,19 @@
           <ScalarProperty Name="swlat" ColumnName="swlat" />
           <ScalarProperty Name="nelng" ColumnName="nelng" />
           <ScalarProperty Name="nelat" ColumnName="nelat" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WifiData">
+      <EntityTypeMapping TypeName="SpeedApplicationDBModel.WifiData">
+        <MappingFragment StoreEntitySet="WifiData">
+          <ScalarProperty Name="long" ColumnName="long" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="aanbieder" ColumnName="aanbieder" />
+          <ScalarProperty Name="spotnaam" ColumnName="spotnaam" />
+          <ScalarProperty Name="huisnummer" ColumnName="huisnummer" />
+          <ScalarProperty Name="postcode" ColumnName="postcode" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

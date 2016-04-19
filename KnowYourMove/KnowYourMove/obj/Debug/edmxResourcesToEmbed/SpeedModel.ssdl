@@ -10,7 +10,6 @@
     <Property Name="tech" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="centrale" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="datum" Type="datetime" Nullable="false" />
-    <Property Name="bevolkingsdichtheid" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="SpeedLocations">
     <Key>
@@ -33,7 +32,9 @@
     <Property Name="postcode" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="huisnummer" Type="int" Nullable="false" />
     <Property Name="spotnaam" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="aanbieder" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="aanbieder" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="lat" Type="float" />
+    <Property Name="long" Type="float" />
   </EntityType>
   <EntityContainer Name="SpeedApplicationDBModelStoreContainer">
     <EntitySet Name="SpeedData" EntityType="Self.SpeedData" Schema="dbo" store:Type="Tables" />
