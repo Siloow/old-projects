@@ -1,0 +1,39 @@
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\Content\background.png
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\Content\ikea.png
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\Content\mine.png
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\Content\mine_cart.png
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\Content\ore_container.png
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\Content\product_box.png
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\Content\product_container.png
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\Content\volvo.png
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\AssignmentComplete.exe
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\AssignmentComplete.pdb
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.dll
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.RawInput.dll
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.Direct3D9.dll
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\MonoGame.Framework.xml
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.xml
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.RawInput.xml
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\obj\x86\Debug\AssignmentComplete.csprojResolveAssemblyReference.cache
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\obj\x86\Debug\AssignmentComplete.exe
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment Complete - no lambda\AssignmentComplete\obj\x86\Debug\AssignmentComplete.pdb
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment - no lambda\AssignmentComplete\obj\x86\Debug\AssignmentComplete.exe
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL VERSION - Assignment - no lambda\AssignmentComplete\obj\x86\Debug\AssignmentComplete.pdb
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL - Assignment - Visual Studio 2015\AssignmentComplete\obj\x86\Debug\AssignmentComplete.exe
+C:\Users\Mudy\Documents\GitHub\Exam-and-practicum-solutions-for-teachers\INFDEV02-3 assignment\ORAL - Assignment - Visual Studio 2015\AssignmentComplete\obj\x86\Debug\AssignmentComplete.pdb
+C:\Users\Mudy\Documents\GitHub\INFDEV02-3-ORAL-EXAM-CSHARP\AssignmentComplete\obj\x86\Debug\AssignmentComplete.exe
+C:\Users\Mudy\Documents\GitHub\INFDEV02-3-ORAL-EXAM-CSHARP\AssignmentComplete\obj\x86\Debug\AssignmentComplete.pdb
