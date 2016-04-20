@@ -13,7 +13,7 @@ namespace KnowYourMove
         public ColorGenerator()
         {
         }
-        public Color RandomColor()
+        public Color RandomColor() // Random color generator ( not in use )
         {
             byte red = (byte)rnd.Next(0, 255);
             byte green = (byte)rnd.Next(0, 255);
@@ -21,7 +21,7 @@ namespace KnowYourMove
 
             return Color.FromRgb(red, green, blue);
         }
-        public Color RandomColorOffSpeed(int postal)
+        public Color RandomColorOffSpeed(int postal) // Used to generate different colors for the heatmap based of the speeds available
         {
             int Postal = postal;
             using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())

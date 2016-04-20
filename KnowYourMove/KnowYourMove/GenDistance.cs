@@ -12,7 +12,7 @@ namespace KnowYourMove
         {
         }
 
-        public static double getDistance(int userinput)
+        public static double getDistance(int userinput) // This extends CalcDistance.cs and is only used to query against the database and return the distance between two given points
         {
             int userInput = userinput;
             using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())

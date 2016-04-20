@@ -67,8 +67,14 @@ namespace KnowYourMove
                     newPolygon.Fill = new SolidColorBrush(randColor.RandomColorOffSpeed(row.postcode));
                     newPolygon.Stroke = new SolidColorBrush(Colors.Green);
                     newPolygon.StrokeThickness = 3;
-                    newPolygon.Opacity = 0.3;
+                    newPolygon.Opacity = 0.25;
                     MapWithPolygon.Focus();
+
+                    /// <summary>
+                    /// We used a script to get the longitude and latitude of 2 corners of a postalcode
+                    /// We then switched the x-axis and y-axis of these points so that we had 4 points in total
+                    /// These 4 points we then use to create squares on the map each representing a certain postalcode
+                    /// </summary>
 
                     { // Add the four points to create a square that covers a postalcode
                         newPolygon.Locations = new LocationCollection()
@@ -93,7 +99,7 @@ namespace KnowYourMove
                 foreach (var data in context.SpeedData)
                 {
                     Label l = new Label();
-                    l.Content = data.snelheid;
+                    l.Content = data.snelheid + " kbs";
                     var a = context.SpeedLocations.Where(f => f.postcode == data.postcode).Select(c => c.cnlat).SingleOrDefault();
                     var b = context.SpeedLocations.Where(f => f.postcode == data.postcode).Select(c => c.cnlng).SingleOrDefault();
 
@@ -103,7 +109,7 @@ namespace KnowYourMove
             }
         }
 
-        private void SetupNewWifiSpots()
+        private void SetupNewWifiSpots() // Goes through every wifi hotspot in the database and adds it to the map
         {
             using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
             {
@@ -126,7 +132,7 @@ namespace KnowYourMove
                 bool result = int.TryParse(textBox.Text, out num1);
                 if (result == true && textBox.Text.Length == 4)
                 {
-                    int num2 = 3011;
+                    int num2 = 3011; // These numbers represent Rotterdam's postalcodes
                     int num3 = 3089;
                     if (num3 > Int32.Parse(textBox.Text) && num2 < Int32.Parse(textBox.Text))
                     {
@@ -185,7 +191,7 @@ namespace KnowYourMove
                         LoadDataIntoBarChart(userInput);
 
                     }
-                    else
+                    else // If the userinput is not in range
                     {
                         textBox.Text = "Postcode niet in Rotterdam.";
                         textBlock.Text = "n/a";
@@ -195,7 +201,7 @@ namespace KnowYourMove
                         textBlock4.Text = "n/a";
                     }
                 }
-                else
+                else // If the user input is not correct
                 {
                     textBox.Text = "Vul een geldige postcode in";
                     textBlock.Text = "n/a";
@@ -207,7 +213,7 @@ namespace KnowYourMove
             }
         }
 
-        private void LoadDataIntoChart()
+        private void LoadDataIntoChart() // Used to insert the data into the pie chart
         {
             using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
             {
@@ -225,7 +231,7 @@ namespace KnowYourMove
                 };
             }
         }
-        private void LoadDataIntoBarChart(int userinput)
+        private void LoadDataIntoBarChart(int userinput) // Uses userinput to insert the data into the bar chart
         {
             int userInput = userinput;
 
@@ -243,7 +249,7 @@ namespace KnowYourMove
                 };
             }
         }
-        private void btnCreatePolygon_Click(object sender, RoutedEventArgs e)
+        private void btnCreatePolygon_Click(object sender, RoutedEventArgs e) // If clicked, all the functions below are called
         {
             NewPolygonLayer.Children.Clear();
             labelLayer.Children.Clear();
@@ -252,7 +258,7 @@ namespace KnowYourMove
             SetupNewData();
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void button1_Click(object sender, RoutedEventArgs e) // If clicked, all the functions below are called
         {
             labelLayer.Children.Clear();
             NewPolygonLayer.Children.Clear();
@@ -261,7 +267,7 @@ namespace KnowYourMove
 
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void button_Click(object sender, RoutedEventArgs e) // If clicked, all the functions below are called
         {
             MiniMap.Children.Clear();
             GetDataFromPostal();
