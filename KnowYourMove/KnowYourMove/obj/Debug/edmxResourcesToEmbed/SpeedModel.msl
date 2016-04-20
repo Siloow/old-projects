@@ -4,6 +4,8 @@
     <EntitySetMapping Name="SpeedData">
       <EntityTypeMapping TypeName="SpeedApplicationDBModel.SpeedData">
         <MappingFragment StoreEntitySet="SpeedData">
+          <ScalarProperty Name="centralelong" ColumnName="centralelong" />
+          <ScalarProperty Name="centralelat" ColumnName="centralelat" />
           <ScalarProperty Name="datum" ColumnName="datum" />
           <ScalarProperty Name="centrale" ColumnName="centrale" />
           <ScalarProperty Name="tech" ColumnName="tech" />

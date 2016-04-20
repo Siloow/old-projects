@@ -33,6 +33,8 @@ namespace KnowYourMove
         MapLayer polygonPointLayer = new MapLayer();
         MapLayer labelLayer = new MapLayer();
         MapLayer wifiLayer = new MapLayer();
+        ColorGenerator randColor = new ColorGenerator();
+        CalcDistance distance = new CalcDistance();
 
         public MainWindow()
         {
@@ -42,14 +44,15 @@ namespace KnowYourMove
             LoadDataIntoChart();
 
             // Display a console onscreen for debugging purposes
-            outputter = new ConsoleBoxHandler(TestBox);
-            Console.SetOut(outputter);
-            Console.WriteLine("Started");
+            //outputter = new ConsoleBoxHandler(TestBox);
+            //Console.SetOut(outputter);
+            //Console.WriteLine("Started");
 
             // Add the layer of internet speeds to the TextLayer xaml layer
             TextLayer.Children.Add(labelLayer);
             WifiLayer.Children.Add(wifiLayer);
         }
+
         private void SetupNewPolygon() //  Run this to add a layer the postalcode heatmap
         {
             // Create a disposeable connection to the database to query against it
@@ -60,8 +63,8 @@ namespace KnowYourMove
                     newPolygon = new MapPolygon();
                     // Defines the polygon fill details
                     newPolygon.Locations = new LocationCollection();
-                    Color a = Color.FromRgb(255, 255, 255);
-                    newPolygon.Fill = new SolidColorBrush(a);
+
+                    newPolygon.Fill = new SolidColorBrush(randColor.RandomColorOffSpeed(row.postcode));
                     newPolygon.Stroke = new SolidColorBrush(Colors.Green);
                     newPolygon.StrokeThickness = 3;
                     newPolygon.Opacity = 0.3;
@@ -114,9 +117,8 @@ namespace KnowYourMove
                 }
             }
         }
-    
 
-        private void GetData() // Run this to query a specific postalcode
+        private void GetDataFromPostal() // Run this to query a specific postalcode
         {
             using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
             {
@@ -124,15 +126,74 @@ namespace KnowYourMove
                 bool result = int.TryParse(textBox.Text, out num1);
                 if (result == true && textBox.Text.Length == 4)
                 {
-                    // Convert user input to an int to compare it to the database values
-                    int userInput = Int32.Parse(textBox.Text);
+                    int num2 = 3011;
+                    int num3 = 3089;
+                    if (num3 > Int32.Parse(textBox.Text) && num2 < Int32.Parse(textBox.Text))
+                    {
+                        // Convert user input to an int to compare it to the database values
+                        int userInput = Int32.Parse(textBox.Text);
 
-                    var speed = context.SpeedData.Where(f => f.postcode == userInput).Select(c => c.snelheid).SingleOrDefault();
-                    var tech = context.SpeedData.Where(f => f.postcode == userInput).Select(c => c.tech).SingleOrDefault();
-                    var central = context.SpeedData.Where(f => f.postcode == userInput).Select(c => c.centrale).SingleOrDefault();
-                    textBlock.Text = Convert.ToString(speed);
-                    textBlock1.Text = Convert.ToString(tech);
-                    textBlock2.Text = Convert.ToString(central);
+                        // We query the user input and return the results and display them to the screen
+                        var speed = context.SpeedData.Where(f => f.postcode == userInput).Select(c => c.snelheid).SingleOrDefault();
+                        var tech = context.SpeedData.Where(f => f.postcode == userInput).Select(c => c.tech).SingleOrDefault();
+                        var central = context.SpeedData.Where(f => f.postcode == userInput).Select(c => c.centrale).SingleOrDefault();
+                        textBlock.Text = Convert.ToString(speed + " kbit");
+                        textBlock1.Text = Convert.ToString(tech);
+                        textBlock2.Text = Convert.ToString(central);
+
+                        string checkCentral = Convert.ToString(central);
+               
+                        if (checkCentral.StartsWith("Rt-A")) // Based on the centrale we can say if someone has a high or low ping
+                        {
+                            textBlock3.Text = "Laag";
+                            textBlock4.Text = "Hoog";
+                        }
+                        else
+                        {
+                            textBlock3.Text = "Hoog";
+                            textBlock4.Text = "Laag";
+                        }
+
+                        // Part where we create and add the line distance to the mini map
+                        // We query the longitude and latitude of the user input
+                        var speedPostalLat = context.SpeedData.Where(f => f.postcode == userInput).Select(c => c.centralelat).SingleOrDefault();
+                        var speedPostalLong = context.SpeedData.Where(f => f.postcode == userInput).Select(c => c.centralelong).SingleOrDefault();
+
+                        var locationPostalLat = context.SpeedLocations.Where(f => f.postcode == userInput).Select(c => c.cnlat).SingleOrDefault();
+                        var locationPostalLong = context.SpeedLocations.Where(f => f.postcode == userInput).Select(c => c.cnlng).SingleOrDefault();
+
+                        // We create a polyline and add it to the mini map
+                        MapPolyline polyline = new MapPolyline();
+                        polyline.Stroke = new SolidColorBrush(Colors.Blue);
+                        polyline.StrokeThickness = 5;
+                        polyline.Opacity = 0.7;
+                        polyline.Locations = new LocationCollection() {
+                        new Location((double)speedPostalLat, (double)speedPostalLong),
+                        new Location((double)locationPostalLat,(double)locationPostalLong) };
+
+                        MiniMap.Children.Add(polyline);
+
+                        // Here we calculate the distance of two points and show it on the screen
+                        var distance = GenDistance.getDistance(userInput);
+
+                        // We cut the result off at a certain decimal
+                        string distanceString = Convert.ToString(distance);
+
+                        string distanceStringCut = new string(distanceString.Take(5).ToArray());
+                        textBlock5.Text = Convert.ToString(distanceStringCut + " km");
+
+                        LoadDataIntoBarChart(userInput);
+
+                    }
+                    else
+                    {
+                        textBox.Text = "Postcode niet in Rotterdam.";
+                        textBlock.Text = "n/a";
+                        textBlock1.Text = "n/a";
+                        textBlock2.Text = "n/a";
+                        textBlock3.Text = "n/a";
+                        textBlock4.Text = "n/a";
+                    }
                 }
                 else
                 {
@@ -140,6 +201,8 @@ namespace KnowYourMove
                     textBlock.Text = "n/a";
                     textBlock1.Text = "n/a";
                     textBlock2.Text = "n/a";
+                    textBlock3.Text = "n/a";
+                    textBlock4.Text = "n/a";
                 }
             }
         }
@@ -148,29 +211,44 @@ namespace KnowYourMove
         {
             using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
             {
-                //var name = context.SpeedData.Select(c => c.centrale).SingleOrDefault();
-                //var speed = context.SpeedData.Select(c => c.snelheid).SingleOrDefault();
+                // We query the different kind of technologies, count them and then add them to the pie chart
                 var tech = context.SpeedData.Where(c => c.tech == "Vdsl2_Pots").Count();
                 var tech1 = context.SpeedData.Where(c => c.tech == "Adsl2_Pots").Count();
                 var tech2 = context.SpeedData.Where(c => c.tech == "Vvdsl2_Pots").Count();
-
-                Console.WriteLine(tech);
 
                 ((PieSeries)pieChart.Series[0]).ItemsSource =
                 new KeyValuePair<string, int>[]
                 {
                     new KeyValuePair<string, int>("Vdsl2_Pots", tech),
                     new KeyValuePair<string, int>("Adsl2_Pots", tech1),
-                    new KeyValuePair<string, int>("Vvdsl2_Pots", tech2) };
+                    new KeyValuePair<string, int>("Vvdsl2_Pots", tech2)
+                };
             }
+        }
+        private void LoadDataIntoBarChart(int userinput)
+        {
+            int userInput = userinput;
 
-        } 
-        
+            using (SpeedApplicationDBEntities context = new SpeedApplicationDBEntities())
+            {
+                // Generate average speed from Rotterdam
+                var avgSpeed = context.SpeedData.Select(c => c.snelheid).Average();
+                var userSpeed = context.SpeedData.Where(f => f.postcode == userInput).Select(c => c.snelheid).SingleOrDefault();
+
+                ((BarSeries)barChart.Series[0]).ItemsSource =
+                new KeyValuePair<string, int>[]
+                {
+                    new KeyValuePair<string, int>("Gemiddelde", (int)avgSpeed),
+                    new KeyValuePair<string, int>("Uw snelheid", userSpeed)
+                };
+            }
+        }
         private void btnCreatePolygon_Click(object sender, RoutedEventArgs e)
         {
-            SetupNewPolygon();
-
+            NewPolygonLayer.Children.Clear();
             labelLayer.Children.Clear();
+            wifiLayer.Children.Clear();
+            SetupNewPolygon();
             SetupNewData();
         }
 
@@ -178,13 +256,15 @@ namespace KnowYourMove
         {
             labelLayer.Children.Clear();
             NewPolygonLayer.Children.Clear();
+            wifiLayer.Children.Clear();
             SetupNewWifiSpots();
 
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            GetData();
+            MiniMap.Children.Clear();
+            GetDataFromPostal();
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)

@@ -15,6 +15,8 @@
     <Property Name="tech" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="centrale" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="datum" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="centralelat" Type="Double" />
+    <Property Name="centralelong" Type="Double" />
   </EntityType>
   <EntityType Name="SpeedLocations">
     <Key>

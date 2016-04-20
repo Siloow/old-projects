@@ -20,5 +20,7 @@ namespace KnowYourMove
         public string tech { get; set; }
         public string centrale { get; set; }
         public System.DateTime datum { get; set; }
+        public Nullable<double> centralelat { get; set; }
+        public Nullable<double> centralelong { get; set; }
     }
 }

@@ -19,8 +19,8 @@ C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\obj\Debug\Kno
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\obj\Debug\KnowYourMove.csproj.GenerateResource.Cache
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\obj\Debug\KnowYourMove.exe
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\obj\Debug\KnowYourMove.pdb
-C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\obj\Debug\KnowYourMove.csprojResolveAssemblyReference.cache
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
 C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\bin\Debug\WPFToolkit.dll
+C:\Users\sil_d\Source\Repos\INFPRJ00-3v2\KnowYourMove\KnowYourMove\obj\Debug\KnowYourMove.csprojResolveAssemblyReference.cache

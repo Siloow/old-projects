@@ -89,6 +89,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CalcDistance.cs" />
+    <Compile Include="GenDistance.cs" />
+    <Compile Include="ColorGenerator.cs" />
     <Compile Include="ConsoleBoxHandler.cs" />
     <Compile Include="SpeedData.cs">
       <DependentUpon>SpeedModel.tt</DependentUpon>
@@ -111,7 +114,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SpeedModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Visualizer.cs" />
     <Compile Include="WifiData.cs">
       <DependentUpon>SpeedModel.tt</DependentUpon>
     </Compile>

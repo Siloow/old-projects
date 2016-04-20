@@ -7,51 +7,86 @@
         xmlns:local="clr-namespace:KnowYourMove"
         xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" x:Class="KnowYourMove.MainWindow"
         mc:Ignorable="d"
-        Title="KnowYourMove" Height="720" Width="1280">
+        Title="KnowYourMove" Height="720" Width="1278">
+
+
     <Grid x:Name="LayoutRoot" Background="White">
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="35" />
-            <RowDefinition Height="133*" />
-            <RowDefinition Height="194*"/>
+            <RowDefinition Height="*" />
+
         </Grid.RowDefinitions>
-        <m:Map x:Name="MapWithPolygon" Grid.RowSpan="3"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300" />
+        </Grid.ColumnDefinitions>
+        <m:Map x:Name="MapWithPolygon" Grid.Column="1" Grid.Row="0"
 			Center="51.924420, 4.477733" ZoomLevel="10"
 			Mode="Road"
-			CredentialsProvider="9gz4K83vtw8ZuGLnGEdY~yaWQBDV4oNy-C5bDzFIzxg~AkUCYEwiLSoXhHlbxQshgE7qag6NDlER1nkVn8xRnN4oKKRQFJFiZc-SwlLymm18"
+			CredentialsProvider="9gz4K83vtw8ZuGLnGEdY~yaWQBDV4oNy-C5bDzFIzxg~AkUCYEwiLSoXhHlbxQshgE7qag6NDlER1nkVn8xRnN4oKKRQFJFiZc-SwlLymm18" Grid.RowSpan="2"
                 >
             <m:MapLayer x:Name="WifiLayer" />
             <m:MapLayer x:Name="NewPolygonLayer"/>
             <m:MapLayer x:Name="TextLayer"/>
-
-            <chartingToolkit:Chart Name="pieChart"
-                                   Title="Overheersende internettechnieken in Rotterdam"
-                                   LegendTitle="Soort technologie"
-                                   Background="AliceBlue"
-                                   HorizontalAlignment="Left" Height="539" VerticalAlignment="Top" Width="662" Margin="1248,360,-638,-210">
-                <chartingToolkit:Chart.Series>
-                    <chartingToolkit:PieSeries Title="Test"
-                                               IndependentValueBinding="{Binding Path=Key}"
-                                               DependentValueBinding="{Binding Path=Value}">
-                    </chartingToolkit:PieSeries>
-                </chartingToolkit:Chart.Series>
-
-            </chartingToolkit:Chart>
         </m:Map>
-        <!--<m:Map x:Name="MyMap" CredentialsProvider="9gz4K83vtw8ZuGLnGEdY~yaWQBDV4oNy-C5bDzFIzxg~AkUCYEwiLSoXhHlbxQshgE7qag6NDlER1nkVn8xRnN4oKKRQFJFiZc-SwlLymm18" Center="51.9,4.47" ZoomLevel="12" Margin="270,2,10,0" Grid.ColumnSpan="2"/>-->
-        <Rectangle Fill="DeepSkyBlue" HorizontalAlignment="Left" Stroke="Blue" Width="270" Height="681" VerticalAlignment="Top" Grid.RowSpan="3"/>
-        <Button x:Name="button" Content="Generate data" HorizontalAlignment="Left" Margin="103,62,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="button_Click" Grid.Row="1"/>
-        <Button x:Name="button1" Content="WiFi Hotspots" HorizontalAlignment="Left" Height="30" Margin="103,223,0,0" VerticalAlignment="Top" Width="100" Click="button1_Click" RenderTransformOrigin="1.375,3.55" Grid.Row="1"/>
-        <Button x:Name="button2" Content="Snelheid heatmap" HorizontalAlignment="Left" Height="30" Margin="103,4,0,0" VerticalAlignment="Top" Width="100" Click="btnCreatePolygon_Click" Grid.Row="2"/>
-        <Label x:Name="label" Content="Postcode:" HorizontalAlignment="Left" Margin="23,28,0,0" VerticalAlignment="Top" Height="34" Width="60" Grid.Row="1"/>
-        <Label x:Name="label1" Content="Snelheid:" HorizontalAlignment="Left" Margin="23,119,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-        <Label x:Name="label2" Content="Technologie:" HorizontalAlignment="Left" Margin="23,145,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-        <Label x:Name="label3" Content="Centrale:" HorizontalAlignment="Left" Margin="23,171,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="36" Margin="103,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="textBox_TextChanged" Text="Vul hier uw postcode in" Grid.Row="1"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="26" Margin="103,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Grid.Row="1"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="26" Margin="103,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Grid.Row="1"/>
-        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="26" Margin="103,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Grid.Row="1"/>
-        <TextBox Height="200" Width="400" x:Name="TestBox" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,32,56" Grid.Row="1"/>
 
-        <!--<m:Map x:Name="MyMap" CredentialsProvider = "9gz4K83vtw8ZuGLnGEdY~yaWQBDV4oNy-C5bDzFIzxg~AkUCYEwiLSoXhHlbxQshgE7qag6NDlER1nkVn8xRnN4oKKRQFJFiZc-SwlLymm18" Center="51.924420, 4.477733" ZoomLevel="16"/>-->
+        <Rectangle Fill="#333" HorizontalAlignment="Stretch" Stroke="#089AFF" VerticalAlignment="Stretch" Grid.Column="0"/>
+        <Rectangle Fill="#444" HorizontalAlignment="Stretch" Stroke="#089AFF" VerticalAlignment="Top" Grid.Column="0" Height="269" MaxHeight="270" Margin="20,20,20,0"/>
+        <Rectangle Fill="#444" HorizontalAlignment="Stretch" Stroke="#089AFF" VerticalAlignment="Stretch" Grid.Column="0" Margin="20,320,20,20"/>
+        <Rectangle Fill="#444" HorizontalAlignment="Stretch" Stroke="#089AFF" VerticalAlignment="Stretch" Grid.Column="2"/>
+
+        <Button x:Name="button" Content="Zoek op" HorizontalAlignment="Stretch" Margin="0,90,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="button_Click" Grid.Row="0"/>
+        <Button x:Name="button1" Content="WiFi Hotspots" HorizontalAlignment="Left" Margin="30,250,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="button1_Click" RenderTransformOrigin="1.375,3.55" Grid.Row="0"/>
+        <Button x:Name="button2" Content="Snelheid heatmap" HorizontalAlignment="Right" Height="30" Margin="0,250,30,0" VerticalAlignment="Top" Width="100" Click="btnCreatePolygon_Click"/>
+        <Label x:Name="label1" Content="Snelheid:" Foreground="AliceBlue" HorizontalAlignment="Left" Margin="25,130,0,0" VerticalAlignment="Top" Grid.Row="0"/>
+        <Label x:Name="label2" Content="Technologie:" Foreground="AliceBlue" HorizontalAlignment="Left" Margin="25,150,0,0" VerticalAlignment="Top" Grid.Row="0"/>
+        <Label x:Name="label3" Content="Centrale:" Foreground="AliceBlue" HorizontalAlignment="Left" Margin="25,170,0,0" VerticalAlignment="Top" Grid.Row="0"/>
+        <Label x:Name="label4" Content="Ping:" Foreground="AliceBlue" HorizontalAlignment="Left" Margin="25,190,0,0" VerticalAlignment="Top" Grid.Row="0"/>
+        <Label x:Name="label5" Content="Upload:" Foreground="AliceBlue" HorizontalAlignment="Left" Margin="25,210,0,0" VerticalAlignment="Top" Grid.Row="0"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Stretch" Height="36" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="textBox_TextChanged" Text="Vul hier uw postcode in" Grid.Row="0"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Foreground="AliceBlue" Height="26" Margin="102,134,102,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Grid.Row="0"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" Foreground="AliceBlue" Height="26" Margin="102,156,102,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Grid.Row="0"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Center" Foreground="AliceBlue" Height="26" Margin="102,176,102,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Grid.Row="0"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Center" Foreground="AliceBlue" Height="26" Margin="102,196,102,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Grid.Row="0"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Center" Foreground="AliceBlue" Height="26" Margin="102,216,102,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Grid.Row="0"/>
+        <chartingToolkit:Chart x:Name="pieChart"
+        	Grid.Row="0"
+        	Grid.Column="2"
+        	Title="Overheersende internettechnieken &#10;in Rotterdam"
+        	LegendTitle="Soort technologie"
+        	Background="AliceBlue"
+        	HorizontalAlignment="Stretch" Height="232" VerticalAlignment="Top" Margin="15,10,15,0">
+            <chartingToolkit:PieSeries Title="Test"
+        		IndependentValueBinding="{Binding Key}"
+        		DependentValueBinding="{Binding Value}"/>
+
+        </chartingToolkit:Chart>
+
+        <chartingToolkit:Chart x:Name="barChart"
+        	Grid.Row="0"
+        	Grid.Column="2"
+        	Title="Jouw snelheid vergeleken met &#10;het gemiddelde"
+        	Background="AliceBlue"
+        	HorizontalAlignment="Stretch" Height="232" VerticalAlignment="Top" Margin="15,282,15,0">
+            <chartingToolkit:Chart.Series>
+                <chartingToolkit:BarSeries Title="Snelheden"
+        		    IndependentValueBinding="{Binding Path=Key}"
+        		    DependentValueBinding="{Binding Path=Value}">
+                </chartingToolkit:BarSeries>
+            </chartingToolkit:Chart.Series>
+        </chartingToolkit:Chart>
+        <!--<TextBox Height="200" Width="400" x:Name="TestBox" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,148,104" Grid.Column="1"/>-->
+        <m:Map x:Name="MiniMap" Grid.Row="0"
+        	Center="51.924420, 4.477733" ZoomLevel="10"
+        	Mode="Road"
+        	CredentialsProvider="9gz4K83vtw8ZuGLnGEdY~yaWQBDV4oNy-C5bDzFIzxg~AkUCYEwiLSoXhHlbxQshgE7qag6NDlER1nkVn8xRnN4oKKRQFJFiZc-SwlLymm18" 
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Margin="21,351,21,21"
+            />
+        <Label x:Name="label6" Content="Afstand tot centrale:" Foreground="AliceBlue" HorizontalAlignment="Left" Margin="25,323,0,0" VerticalAlignment="Top" Grid.Row="0" RenderTransformOrigin="0.496,0.538"/>
+        <TextBlock x:Name="textBlock5" HorizontalAlignment="Center" Foreground="AliceBlue" Height="26" Margin="142,329,62,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Grid.Row="0"/>
     </Grid>
+
 </Window>
