@@ -28,7 +28,7 @@ namespace KnowYourMove
         /// <summary>
         /// Create instances of everything that is needed to be showed in the main screen
         /// </summary>
-        ConsoleBoxHandler outputter;
+        //ConsoleBoxHandler outputter;
         MapPolygon newPolygon = null;
         MapLayer polygonPointLayer = new MapLayer();
         MapLayer labelLayer = new MapLayer();
