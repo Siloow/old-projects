@@ -72,3 +72,5 @@ C:\Users\sil_d\Source\Repos\INFDEV02-3-ORAL-EXAM-CSHARP\AssignmentComplete\bin\W
 C:\Users\sil_d\Source\Repos\INFDEV02-3-ORAL-EXAM-CSHARP\AssignmentComplete\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\Users\sil_d\Source\Repos\INFDEV02-3-ORAL-EXAM-CSHARP\AssignmentComplete\bin\Windows\Debug\FSharp.Core.dll
 C:\Users\sil_d\Source\Repos\INFDEV02-3-ORAL-EXAM-CSHARP\AssignmentComplete\bin\Windows\Debug\FSharp.Core.xml
+C:\Users\sil_d\Source\Repos\INFDEV02-3-ORAL-EXAM-CSHARP-TO-FSHARP\AssignmentComplete\obj\x86\Debug\AssignmentComplete.exe
+C:\Users\sil_d\Source\Repos\INFDEV02-3-ORAL-EXAM-CSHARP-TO-FSHARP\AssignmentComplete\obj\x86\Debug\AssignmentComplete.pdb
