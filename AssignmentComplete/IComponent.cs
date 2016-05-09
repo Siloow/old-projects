@@ -17,4 +17,10 @@ namespace AssignmentComplete
   
   // An interface is missing. Write it.
   // TODO: 2 points
+  public interface IComponent : IDrawable, IUpdateable
+    {
+
+    }
+
+   
 }

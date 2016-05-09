@@ -28,22 +28,30 @@ namespace AssignmentComplete
 
   // TODO: UNCOMMENT THE COMMENTED LINES AND COMPLETE THE MISSING LINES
   // POINTS 4
-  //{
-  //  public AddOreContainerToTruck(MiningFactory mine)
-  //  {
-  //    this.mine = mine;
-  //  }
-  //  int compute_amounts(int max)
-  //  {
-  //    int sum = 0;
-  //    for (int i = 0; i < max; i++)
-  //    {
-  //      sum = mine.ProductsToShip[i].CurrentAmount;
-  //    }
-  //    return sum;
-  //  }
-  //}
-  class RemoveTruckFromMine : IAction
+  class AddOreContainerToTruck : IAction
+    {
+        MiningFactory mine;
+        public AddOreContainerToTruck(MiningFactory mine)
+        {
+            this.mine = mine;
+        }
+        int compute_amounts(int max)
+        {
+            int sum = 0;
+            for (int i = 0; i < max; i++)
+            {
+                sum = mine.ProductsToShip[i].CurrentAmount;
+            }
+            return sum;
+        }
+        public void Run()
+        {
+            mine.waitingTruck.AddContainer(new Ore(compute_amounts(3), mine.oreContainer));
+            mine.ProductsToShip.RemoveRange(0, 3);
+            mine.isTruckReady = true;
+        }
+    }
+    class RemoveTruckFromMine : IAction
   {
     MiningFactory mine;
     public RemoveTruckFromMine(MiningFactory mine)
@@ -94,14 +102,16 @@ namespace AssignmentComplete
       processes.Add(
         new Repeat(new Seq(new Timer(1.0f),
                            new Call(new AddOreBoxToMine(this)))));
-      //TODO: DECOMMENT WHEN ALL CLASSES CORRECTLY FILLED IN
-      //processes.Add(
-      //  new Repeat(new Seq(new Wait(() => ProductsToShip.Count > 3),
-      //             new Seq(new Call(new AddOreContainerToTruck(this)),
-      //             new Seq(new Call(new RemoveTruckFromMine(this)),
-      //             new Seq(new Timer(1.0f),
-      //                     new Call(new AddEmptyTruckToMine(this))))))));
-    }
+
+
+            //TODO: DECOMMENT WHEN ALL CLASSES CORRECTLY FILLED IN
+            processes.Add(
+              new Repeat(new Seq(new Wait(() => ProductsToShip.Count > 3),
+                         new Seq(new Call(new AddOreContainerToTruck(this)),
+                         new Seq(new Call(new RemoveTruckFromMine(this)),
+                         new Seq(new Timer(1.0f),
+                                 new Call(new AddEmptyTruckToMine(this))))))));
+        }
 
 
     public ITruck GetReadyTruck()
@@ -154,7 +164,6 @@ namespace AssignmentComplete
     }
 
   }
-
   class AddProductBoxToIkea : IAction
   {
     IkeaFactory ikea;
@@ -173,27 +182,35 @@ namespace AssignmentComplete
       return box;
     }
   }
-  
-  // TODO: UNCOMMENT THE COMMENTED LINES AND COMPLETE THE MISSING LINES
-  // POINTS 4
-  //{
-  //  public void Run()
-  //  {
-  //    ikea.waitingTruck.AddContainer(new Ore(compute_amounts(3), ikea.productContainer));
-  //    ikea.ProductsToShip.RemoveRange(0, 3);
-  //    ikea.isTruckReady = true;
-  //  }
-  //  int compute_amounts(int max)
-  //  {
-  //    int sum = 0;
-  //    for (int i = 0; i < max; i++)
-  //    {
-  //      sum = ikea.ProductsToShip[i].CurrentAmount;
-  //    }
-  //    return sum;
-  //  }
-  //}
-  class RemoveTruckFromIkea : IAction
+
+    // TODO: UNCOMMENT THE COMMENTED LINES AND COMPLETE THE MISSING LINES
+    // POINTS 4
+    class AddProductContainerToTruck : IAction
+    {
+        IkeaFactory ikea;
+        public AddProductContainerToTruck(IkeaFactory ikea)
+        {
+            this.ikea = ikea;
+        }
+
+        
+          public void Run()
+        {
+            ikea.waitingTruck.AddContainer(new Ore(compute_amounts(3), ikea.productContainer));
+            ikea.ProductsToShip.RemoveRange(0, 3);
+            ikea.isTruckReady = true;
+        }
+        int compute_amounts(int max)
+        {
+            int sum = 0;
+            for (int i = 0; i < max; i++)
+            {
+                sum = ikea.ProductsToShip[i].CurrentAmount;
+            }
+            return sum;
+        }
+    }
+    class RemoveTruckFromIkea : IAction
   {
     IkeaFactory ikea;
     public RemoveTruckFromIkea(IkeaFactory ikea)
@@ -246,16 +263,16 @@ namespace AssignmentComplete
       processes.Add(
                     new Repeat(new Seq(new Timer(1.0f),
                                        new Call(new AddProductBoxToIkea(this)))));
-      //TODO: DECOMMENT WHEN ALL CLASSES CORRECTLY FILLED IN
-      //processes.Add(
-      //  new Repeat(new Seq(new Wait(() => ProductsToShip.Count > 3),
-      //                     new Seq(new Call(new AddProductContainerToTruck(this)),
-      //                     new Seq(new Call(new RemoveTruckFromIkea(this)),
-      //                     new Seq(new Timer(1.0f),
-      //                     new Call(new AddTruckToIkea(this))))))));
+            //TODO: DECOMMENT WHEN ALL CLASSES CORRECTLY FILLED IN
+            processes.Add(
+              new Repeat(new Seq(new Wait(() => ProductsToShip.Count > 3),
+                                 new Seq(new Call(new AddProductContainerToTruck(this)),
+                                 new Seq(new Call(new RemoveTruckFromIkea(this)),
+                                 new Seq(new Timer(1.0f),
+                                 new Call(new AddTruckToIkea(this))))))));
 
 
-    }
+        }
 
     public ITruck GetReadyTruck()
     {
