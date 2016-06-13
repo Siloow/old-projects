@@ -5,8 +5,7 @@ using System.Text;
 
 namespace DesignPatternsExercise
 {
-    interface IDecorator : TraditionalIterator<T> 
+    interface IDecorator<T> : TraditionalIterator<T> 
     {
-
     }
 }

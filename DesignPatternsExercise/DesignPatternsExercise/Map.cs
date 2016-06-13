@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DesignPatternsExercise
 {
-    public class Map : IDecorator
+    public class Map<T> : IDecorator<T>
     {
         public T Current
         {

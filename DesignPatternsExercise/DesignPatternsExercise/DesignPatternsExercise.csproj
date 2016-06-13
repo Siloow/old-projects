@@ -38,14 +38,13 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Button.cs" />
+    <Compile Include="Elements.cs" />
     <Compile Include="ElementFactory.cs" />
     <Compile Include="Collections.cs" />
     <Compile Include="Generics.cs" />
     <Compile Include="IDecorator.cs" />
     <Compile Include="IElement.cs" />
     <Compile Include="IIterator.cs" />
-    <Compile Include="IOption.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Program.cs" />
@@ -63,6 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Fonts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

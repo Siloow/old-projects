@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 
 namespace DesignPatternsExercise
@@ -13,6 +14,7 @@ namespace DesignPatternsExercise
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D _blank;
+        SpriteFont font;
         ElementsFactory efac;
         TraditionalIterator<IElement> elements;
         List<IElement> elementsList;
@@ -21,6 +23,7 @@ namespace DesignPatternsExercise
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -34,14 +37,18 @@ namespace DesignPatternsExercise
             // TODO: Add your initialization logic here
             _blank = new Texture2D(GraphicsDevice, 1, 1);
 
-
             elementsList = new List<IElement>();
             elements = new ElementsList<IElement>(elementsList);
 
             efac = new ElementsFactory();
+            string msg;
+            Action tmp = () => msg = "hello";
+            var action = new Action(tmp);
+            
 
-            IElement aButton = efac.Create(1);
-            IElement aButton2 = efac.Create(2);
+
+            IElement aButton = efac.Create(1, _blank, action);
+            IElement aButton2 = efac.Create(2, _blank, action);
 
             elementsList.Add(aButton);
             elementsList.Add(aButton2);
@@ -58,6 +65,8 @@ namespace DesignPatternsExercise
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);            
             _blank.SetData(new[] { Color.White });
+
+            font = Content.Load<SpriteFont>("font");
 
             // TODO: use this.Content to load your game content here
         }
@@ -81,8 +90,15 @@ namespace DesignPatternsExercise
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
             // TODO: Add your update logic here
-            //ElementsList<Button> elems = new ElementsList<Button>();
+
+            IElementVisitor ev = new ElementVisitor();
+
+            foreach (var item in elementsList)
+            {
+                item.Visit(ev);
+            }
 
             base.Update(gameTime);
         }
@@ -98,11 +114,16 @@ namespace DesignPatternsExercise
             spriteBatch.Begin();
 
             elements.MoveNext();
-            for (int i = 0; i < elementsList.Count; i++)
+            //for (int i = 0; i < elementsList.Count; i++)
+            //{
+            //    spriteBatch.Draw(_blank, elements.Current.DrawRectangle, elements.Current.Color);
+            //    elements.MoveNext();
+            //}  
+
+            foreach (var item in elementsList)
             {
-                spriteBatch.Draw(_blank, elements.Current.DrawRectangle, elements.Current.Color);
-                elements.MoveNext();
-            }  
+                item.Draw(spriteBatch);
+            }
 
             spriteBatch.End();
 

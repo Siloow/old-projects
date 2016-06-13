@@ -13,9 +13,11 @@ namespace DesignPatternsExercise
         Point Location { get; }
         Point Size { get; }
         Color Color { get; }
-        Rectangle DrawRectangle { get; }
+        Rectangle DrawRectangle { get; }        
+        Action Action { get; }
 
-        void Draw(float dt);
-        void Update(SpriteBatch spriteBatch);
+        void Draw(SpriteBatch spriteBatch);
+        void Update(float dt);
+        void Visit(IElementVisitor visitor);
     }
 }
