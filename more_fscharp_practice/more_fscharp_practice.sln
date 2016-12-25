@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "more_fscharp_practice", "more_fscharp_practice\more_fscharp_practice.fsproj", "{AB873A8F-3A42-4293-BF6A-F1576437E727}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB873A8F-3A42-4293-BF6A-F1576437E727}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB873A8F-3A42-4293-BF6A-F1576437E727}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB873A8F-3A42-4293-BF6A-F1576437E727}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB873A8F-3A42-4293-BF6A-F1576437E727}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
