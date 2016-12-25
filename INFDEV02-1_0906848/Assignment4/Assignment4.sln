@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Assignment4.1A", "Assignment4.1A\Assignment4.1A.pyproj", "{8B67752F-29C0-4849-BD88-D5CAE535134E}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Assignment4.1B", "Assignment4.1B\Assignment4.1B.pyproj", "{2E597D46-1270-4756-B59B-8FEAF093B69B}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Assignment4.1C", "Assignment4.1C\Assignment4.1C.pyproj", "{BCFA59D7-3FEA-49C1-AB57-F36F057DADCA}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Assignment4.2A", "Assignment4.2A\Assignment4.2A.pyproj", "{622AC9F8-AEB7-49AF-8496-9ABFFD43866F}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Assignment4.2B", "Assignment4.2B\Assignment4.2B.pyproj", "{0DC0E29D-2344-4AE9-96EB-2B040BEC93EC}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Assignment4.2B (Alternative)", "Assignment4.2B (Alternative)\Assignment4.2B (Alternative).pyproj", "{7729BB0A-4713-4033-9848-8215648A5761}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B67752F-29C0-4849-BD88-D5CAE535134E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B67752F-29C0-4849-BD88-D5CAE535134E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E597D46-1270-4756-B59B-8FEAF093B69B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E597D46-1270-4756-B59B-8FEAF093B69B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCFA59D7-3FEA-49C1-AB57-F36F057DADCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCFA59D7-3FEA-49C1-AB57-F36F057DADCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{622AC9F8-AEB7-49AF-8496-9ABFFD43866F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{622AC9F8-AEB7-49AF-8496-9ABFFD43866F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DC0E29D-2344-4AE9-96EB-2B040BEC93EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DC0E29D-2344-4AE9-96EB-2B040BEC93EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7729BB0A-4713-4033-9848-8215648A5761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7729BB0A-4713-4033-9848-8215648A5761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
