@@ -1,0 +1,1 @@
+C:\Users\Tim\Source\Repos\INFPRJ00-3\BingMapTest\BingMapTest\BingMapTest.csproj;x86
