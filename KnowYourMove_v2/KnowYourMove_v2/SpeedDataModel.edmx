@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SpeedApplicationDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SpeedData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="postcode" Type="int" Nullable="false" />
+          <Property Name="snelheid" Type="int" Nullable="false" />
+          <Property Name="tech" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="centrale" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="datum" Type="datetime" Nullable="false" />
+          <Property Name="bevolkingsdichtheid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WifiData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="postcode" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="huisnummer" Type="int" Nullable="false" />
+          <Property Name="spotnaam" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="aanbieder" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="SpeedApplicationDBModelStoreContainer">
+          <EntitySet Name="SpeedData" EntityType="Self.SpeedData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WifiData" EntityType="Self.WifiData" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SpeedApplicationDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="SpeedData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="postcode" Type="Int32" Nullable="false" />
+          <Property Name="snelheid" Type="Int32" Nullable="false" />
+          <Property Name="tech" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="centrale" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="datum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="bevolkingsdichtheid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WifiData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="postcode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="huisnummer" Type="Int32" Nullable="false" />
+          <Property Name="spotnaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="aanbieder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="SpeedApplicationDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SpeedData" EntityType="Self.SpeedData" />
+          <EntitySet Name="WifiData" EntityType="Self.WifiData" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SpeedApplicationDBModelStoreContainer" CdmEntityContainer="SpeedApplicationDBEntities">
+          <EntitySetMapping Name="SpeedData">
+            <EntityTypeMapping TypeName="SpeedApplicationDBModel.SpeedData">
+              <MappingFragment StoreEntitySet="SpeedData">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="snelheid" ColumnName="snelheid" />
+                <ScalarProperty Name="tech" ColumnName="tech" />
+                <ScalarProperty Name="centrale" ColumnName="centrale" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="bevolkingsdichtheid" ColumnName="bevolkingsdichtheid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WifiData">
+            <EntityTypeMapping TypeName="SpeedApplicationDBModel.WifiData">
+              <MappingFragment StoreEntitySet="WifiData">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="huisnummer" ColumnName="huisnummer" />
+                <ScalarProperty Name="spotnaam" ColumnName="spotnaam" />
+                <ScalarProperty Name="aanbieder" ColumnName="aanbieder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

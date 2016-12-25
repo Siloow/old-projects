@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SpeedApplicationDBModelStoreContainer" CdmEntityContainer="SpeedApplicationDBEntities">
+    <EntitySetMapping Name="SpeedData">
+      <EntityTypeMapping TypeName="SpeedApplicationDBModel.SpeedData">
+        <MappingFragment StoreEntitySet="SpeedData">
+          <ScalarProperty Name="centralelong" ColumnName="centralelong" />
+          <ScalarProperty Name="centralelat" ColumnName="centralelat" />
+          <ScalarProperty Name="datum" ColumnName="datum" />
+          <ScalarProperty Name="centrale" ColumnName="centrale" />
+          <ScalarProperty Name="tech" ColumnName="tech" />
+          <ScalarProperty Name="snelheid" ColumnName="snelheid" />
+          <ScalarProperty Name="postcode" ColumnName="postcode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpeedLocations">
+      <EntityTypeMapping TypeName="SpeedApplicationDBModel.SpeedLocations">
+        <MappingFragment StoreEntitySet="SpeedLocations">
+          <ScalarProperty Name="postcode" ColumnName="postcode" />
+          <ScalarProperty Name="cnlng" ColumnName="cnlng" />
+          <ScalarProperty Name="cnlat" ColumnName="cnlat" />
+          <ScalarProperty Name="swlng" ColumnName="swlng" />
+          <ScalarProperty Name="swlat" ColumnName="swlat" />
+          <ScalarProperty Name="nelng" ColumnName="nelng" />
+          <ScalarProperty Name="nelat" ColumnName="nelat" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WifiData">
+      <EntityTypeMapping TypeName="SpeedApplicationDBModel.WifiData">
+        <MappingFragment StoreEntitySet="WifiData">
+          <ScalarProperty Name="long" ColumnName="long" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="aanbieder" ColumnName="aanbieder" />
+          <ScalarProperty Name="spotnaam" ColumnName="spotnaam" />
+          <ScalarProperty Name="huisnummer" ColumnName="huisnummer" />
+          <ScalarProperty Name="postcode" ColumnName="postcode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
