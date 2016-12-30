@@ -310,6 +310,12 @@ let range = seq {0 .. 2 .. 6}
 for i in range do
     printfn "i = %d" i
 
+// Page 55
 // Transforming sequences with aggregate operators
 let range' = seq {0 .. 10}
 let rangeResult = range' |> Seq.map(fun i ->(i,i*i))
+
+// Page 58
+// Using sequence expressions
+// Aggregate operators are a powerful way of working with seq<type> values. However, F# also provides a
+// convenient and compact syntax called s..
